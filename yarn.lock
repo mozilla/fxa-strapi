@@ -1939,6 +1939,25 @@
     prop-types "^15.8.1"
     react-remove-scroll "^2.5.7"
 
+"@strapi/design-system@1.18.0":
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/@strapi/design-system/-/design-system-1.18.0.tgz#7673c2157e9d28edee118c981fd4fc8460fb723a"
+  integrity sha512-bQ//p4deEfu3z2rQOrT1QUPPugXsoVUusSuwdffZ7/fJAxOShZ8nOUmpWETq8bZECPoDn278cirYAXfcTftHLA==
+  dependencies:
+    "@codemirror/lang-json" "^6.0.1"
+    "@floating-ui/react-dom" "^2.0.8"
+    "@internationalized/date" "^3.5.2"
+    "@internationalized/number" "^3.5.1"
+    "@radix-ui/react-dismissable-layer" "^1.0.5"
+    "@radix-ui/react-dropdown-menu" "^2.0.6"
+    "@radix-ui/react-focus-scope" "1.0.4"
+    "@strapi/ui-primitives" "^1.18.0"
+    "@uiw/react-codemirror" "^4.21.25"
+    aria-hidden "^1.2.4"
+    compute-scroll-into-view "^3.1.0"
+    prop-types "^15.8.1"
+    react-remove-scroll "^2.5.9"
+
 "@strapi/generate-new@4.20.3":
   version "4.20.3"
   resolved "https://registry.yarnpkg.com/@strapi/generate-new/-/generate-new-4.20.3.tgz#7b32d41c962902c570be415228f3c7023685e220"
@@ -2003,6 +2022,22 @@
     react-query "3.39.3"
     react-select "5.7.0"
 
+"@strapi/helper-plugin@4.24.2":
+  version "4.24.2"
+  resolved "https://registry.yarnpkg.com/@strapi/helper-plugin/-/helper-plugin-4.24.2.tgz#82ff3a1ac84f4f33710a991760eb8dd7a83f2271"
+  integrity sha512-qotruFj6amzJ1859e34zitNwTvc1PwqL37G7JwpHZauK6UL9lDbbqTgyVRl+84+xy+xxWT9KYKyhZYKgiI0EcQ==
+  dependencies:
+    axios "1.6.0"
+    date-fns "2.30.0"
+    formik "2.4.0"
+    immer "9.0.19"
+    lodash "4.17.21"
+    qs "6.11.1"
+    react-helmet "6.1.0"
+    react-intl "6.4.1"
+    react-query "3.39.3"
+    react-select "5.7.0"
+
 "@strapi/icons@1.14.1":
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-1.14.1.tgz#8f820512d0c9a8b75570f7a96ea42c969f65263b"
@@ -2012,6 +2047,11 @@
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-1.16.0.tgz#0b98dfa805a370423ad945208c07d00962209bd3"
   integrity sha512-sa7MTlhHpbpFCS5ZIlgLQQtG4s5W7ojGFr6CsjwtFdezrvBLbY5ZGmVByghK7b3XoZ1bNYk1AiGdcxMQvCu+vw==
+
+"@strapi/icons@1.18.0":
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-1.18.0.tgz#ef8e36155ad4dfce53e83b780ba5c64856d1e9a2"
+  integrity sha512-XeOjGqwDX7HkSfWNnUOx8WCT3qGzPixZrKxNUPCPmIzcLmhL9/Ni4wa1uoqwiZgzq/XzoiXpNEPl1lB5Tiljjg==
 
 "@strapi/logger@4.20.3":
   version "4.20.3"
@@ -2198,15 +2238,15 @@
     sharp "0.32.6"
     yup "0.32.9"
 
-"@strapi/plugin-users-permissions@4.20.3":
-  version "4.20.3"
-  resolved "https://registry.yarnpkg.com/@strapi/plugin-users-permissions/-/plugin-users-permissions-4.20.3.tgz#cf091d8a459eec202e28b3e72ef0ec3c6f6cb571"
-  integrity sha512-6jKF88KFeMSco++lb8ZhTvS0pzr7b1ZNH7nlcyckHPafwuf7dLAzwNOs7B/hV+S0YJRjSblUlOplNn38QLGKzQ==
+"@strapi/plugin-users-permissions@4.24.2":
+  version "4.24.2"
+  resolved "https://registry.yarnpkg.com/@strapi/plugin-users-permissions/-/plugin-users-permissions-4.24.2.tgz#4aa32f4ccb5519b3e87c4816cdb74aead7f8d989"
+  integrity sha512-2N7RS+5UtuAtpD0WFbdo+AJJ0lZQ2larSXBUqX5ykxayl9GwwxnCubel/SzQ0wQZhISWbmemoG87zBfVl0NSEw==
   dependencies:
-    "@strapi/design-system" "1.14.1"
-    "@strapi/helper-plugin" "4.20.3"
-    "@strapi/icons" "1.14.1"
-    "@strapi/utils" "4.20.3"
+    "@strapi/design-system" "1.18.0"
+    "@strapi/helper-plugin" "4.24.2"
+    "@strapi/icons" "1.18.0"
+    "@strapi/utils" "4.24.2"
     bcryptjs "2.4.3"
     formik "2.4.0"
     grant-koa "5.4.8"
@@ -2400,6 +2440,33 @@
     aria-hidden "^1.2.4"
     react-remove-scroll "^2.5.9"
 
+"@strapi/ui-primitives@^1.18.0":
+  version "1.19.0"
+  resolved "https://registry.yarnpkg.com/@strapi/ui-primitives/-/ui-primitives-1.19.0.tgz#01e2709d64bbde1f6810c49898da216934f76479"
+  integrity sha512-dEpmI0PpSH6VWuP/bBvRKI5lUpazdDAcxOpukoq2QDwUFbuZWywgW7a6O5nMnD4bLQtyNeYwd52J8Jqr9pNoQA==
+  dependencies:
+    "@radix-ui/number" "^1.0.1"
+    "@radix-ui/primitive" "^1.0.1"
+    "@radix-ui/react-collection" "1.0.3"
+    "@radix-ui/react-compose-refs" "^1.0.1"
+    "@radix-ui/react-context" "^1.0.1"
+    "@radix-ui/react-direction" "1.0.1"
+    "@radix-ui/react-dismissable-layer" "^1.0.5"
+    "@radix-ui/react-focus-guards" "1.0.1"
+    "@radix-ui/react-focus-scope" "1.0.4"
+    "@radix-ui/react-id" "^1.0.1"
+    "@radix-ui/react-popper" "^1.1.3"
+    "@radix-ui/react-portal" "^1.0.4"
+    "@radix-ui/react-primitive" "^1.0.3"
+    "@radix-ui/react-slot" "^1.0.2"
+    "@radix-ui/react-use-callback-ref" "^1.0.1"
+    "@radix-ui/react-use-controllable-state" "^1.0.1"
+    "@radix-ui/react-use-layout-effect" "1.0.1"
+    "@radix-ui/react-use-previous" "^1.0.1"
+    "@radix-ui/react-visually-hidden" "^1.0.3"
+    aria-hidden "^1.2.4"
+    react-remove-scroll "^2.5.9"
+
 "@strapi/utils@4.20.3":
   version "4.20.3"
   resolved "https://registry.yarnpkg.com/@strapi/utils/-/utils-4.20.3.tgz#8c404ed3863a743b87d8780907f9e80846b31f08"
@@ -2416,6 +2483,18 @@
   version "4.23.0"
   resolved "https://registry.yarnpkg.com/@strapi/utils/-/utils-4.23.0.tgz#f266e6fc518509e2cdb9450c5b1d75491b5f9942"
   integrity sha512-6xL0Ql3dioeoEomMzASiqx5yQchbhTu+Zg/zu6vGYgqLK2NAO8tJGR6jXYZzfPyDGZ85/43qr+txrU/UAUNy7A==
+  dependencies:
+    "@sindresorhus/slugify" "1.1.0"
+    date-fns "2.30.0"
+    http-errors "1.8.1"
+    lodash "4.17.21"
+    p-map "4.0.0"
+    yup "0.32.9"
+
+"@strapi/utils@4.24.2":
+  version "4.24.2"
+  resolved "https://registry.yarnpkg.com/@strapi/utils/-/utils-4.24.2.tgz#201c77f3f581b899e869af416ce79299b261a418"
+  integrity sha512-YTGIBpCbiF7ToLQUHhWqSt7tL78O8yVEyEOWwHDrNUK48Lc+Ra4lO3/7SO+LCE2uTndbu562//5l49b/JhMrwQ==
   dependencies:
     "@sindresorhus/slugify" "1.1.0"
     date-fns "2.30.0"
@@ -2912,6 +2991,19 @@
     "@codemirror/state" "^6.0.0"
     "@codemirror/view" "^6.0.0"
 
+"@uiw/codemirror-extensions-basic-setup@4.23.0":
+  version "4.23.0"
+  resolved "https://registry.yarnpkg.com/@uiw/codemirror-extensions-basic-setup/-/codemirror-extensions-basic-setup-4.23.0.tgz#c3c181153335c208a25d59b8ecbc7fc87fe85356"
+  integrity sha512-+k5nkRpUWGaHr1JWT8jcKsVewlXw5qBgSopm9LW8fZ6KnSNZBycz8kHxh0+WSvckmXEESGptkIsb7dlkmJT/hQ==
+  dependencies:
+    "@codemirror/autocomplete" "^6.0.0"
+    "@codemirror/commands" "^6.0.0"
+    "@codemirror/language" "^6.0.0"
+    "@codemirror/lint" "^6.0.0"
+    "@codemirror/search" "^6.0.0"
+    "@codemirror/state" "^6.0.0"
+    "@codemirror/view" "^6.0.0"
+
 "@uiw/react-codemirror@^4.21.21":
   version "4.21.24"
   resolved "https://registry.yarnpkg.com/@uiw/react-codemirror/-/react-codemirror-4.21.24.tgz#38b05e0a24d2307313b2e73390b20d0251837170"
@@ -2934,6 +3026,18 @@
     "@codemirror/state" "^6.1.1"
     "@codemirror/theme-one-dark" "^6.0.0"
     "@uiw/codemirror-extensions-basic-setup" "4.21.25"
+    codemirror "^6.0.0"
+
+"@uiw/react-codemirror@^4.21.25":
+  version "4.23.0"
+  resolved "https://registry.yarnpkg.com/@uiw/react-codemirror/-/react-codemirror-4.23.0.tgz#5eeadcd5de61213ad76ac3c772fffb7e5b54b465"
+  integrity sha512-MnqTXfgeLA3fsUUQjqjJgemEuNyoGALgsExVm0NQAllAAi1wfj+IoKFeK+h3XXMlTFRCFYOUh4AHDv0YXJLsOg==
+  dependencies:
+    "@babel/runtime" "^7.18.6"
+    "@codemirror/commands" "^6.1.0"
+    "@codemirror/state" "^6.1.1"
+    "@codemirror/theme-one-dark" "^6.0.0"
+    "@uiw/codemirror-extensions-basic-setup" "4.23.0"
     codemirror "^6.0.0"
 
 "@vitejs/plugin-react-swc@3.5.0":
