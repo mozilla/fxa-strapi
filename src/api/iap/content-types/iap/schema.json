@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "iaps",
+  "info": {
+    "singularName": "iap",
+    "pluralName": "iaps",
+    "displayName": "IAP",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "internalName": {
+      "type": "string",
+      "required": false,
+      "unique": false
+    },
+    "appleProductIDs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "iap.apple-product-i-ds"
+    },
+    "googleSKUs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "iap.google-sk-us"
+    }
+  }
+}

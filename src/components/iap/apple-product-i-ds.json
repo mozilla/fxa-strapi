@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_iap_apple_product_i_ds",
+  "info": {
+    "displayName": "Apple Product IDs",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "appleProductID": {
+      "type": "string",
+      "minLength": 2
+    }
+  }
+}

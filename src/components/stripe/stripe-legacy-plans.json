@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_stripe_stripe_legacy_plans",
+  "info": {
+    "displayName": "Stripe Legacy Plans",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "stripeLegacyPlan": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

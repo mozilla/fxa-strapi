@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_iap_google_s_kuses",
+  "info": {
+    "displayName": "Google SKUs",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "googleSKU": {
+      "type": "string",
+      "minLength": 2
+    }
+  }
+}

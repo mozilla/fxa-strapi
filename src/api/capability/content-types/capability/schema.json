@@ -4,7 +4,8 @@
   "info": {
     "singularName": "capability",
     "pluralName": "capabilities",
-    "displayName": "Capability"
+    "displayName": "Capability",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -27,6 +28,12 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::service.service",
+      "inversedBy": "capabilities"
+    },
+    "offerings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::offering.offering",
       "inversedBy": "capabilities"
     }
   }

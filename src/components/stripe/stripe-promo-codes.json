@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_codes_stripe_promo_codes",
+  "info": {
+    "displayName": "Stripe Promo Codes",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "PromoCode": {
+      "type": "string",
+      "unique": false,
+      "minLength": 2
+    }
+  }
+}

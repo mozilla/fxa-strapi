@@ -585,6 +585,53 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 50;
+        },
+        number
+      >;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -736,59 +783,13 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
-  info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 50;
-        },
-        number
-      >;
-    code: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiCapabilityCapability extends Schema.CollectionType {
   collectionName: 'capabilities';
   info: {
     singularName: 'capability';
     pluralName: 'capabilities';
     displayName: 'Capability';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -801,6 +802,11 @@ export interface ApiCapabilityCapability extends Schema.CollectionType {
       'api::capability.capability',
       'manyToMany',
       'api::service.service'
+    >;
+    offerings: Attribute.Relation<
+      'api::capability.capability',
+      'manyToMany',
+      'api::offering.offering'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -817,6 +823,462 @@ export interface ApiCapabilityCapability extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+  };
+}
+
+export interface ApiCommonContentCommonContent extends Schema.CollectionType {
+  collectionName: 'common_contents';
+  info: {
+    singularName: 'common-content';
+    pluralName: 'common-contents';
+    displayName: 'Common content';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    internalName: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    privacyNoticeUrl: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    privacyNoticeDownloadUrl: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    termsOfServiceUrl: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    termsOfServiceDownloadUrl: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    cancellationUrl: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    emailIcon: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    successActionButtonLabel: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    successActionButtonUrl: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    newsletterLabelTextCode: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['mdnplus', 'snp']
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    newsletterSlug: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['mozilla-accounts', 'mdnplus', 'security-privacy-news']
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::common-content.common-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::common-content.common-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::common-content.common-content',
+      'oneToMany',
+      'api::common-content.common-content'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiCouponConfigCouponConfig extends Schema.CollectionType {
+  collectionName: 'coupon_configs';
+  info: {
+    singularName: 'coupon-config';
+    pluralName: 'coupon-configs';
+    displayName: 'Coupon config';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    internalName: Attribute.String & Attribute.Required & Attribute.Unique;
+    countries: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'AT - Austria',
+          'BE - Belgium',
+          'BG - Bulgaria',
+          'CA - Canada',
+          'HR - Croatia',
+          'CY - Cyprus',
+          'CZ - Czech Republic',
+          'DK - Denmark',
+          'EE - Estonia',
+          'FI - Finland',
+          'FR - France',
+          'DE - Germany',
+          'GR - Greece',
+          'HU - Hungary',
+          'IE - Ireland',
+          'IT - Italy',
+          'LV - Latvia',
+          'LT - Lithuania',
+          'LU - Luxembourg',
+          'MY - Malaysia',
+          'MT - Malta',
+          'NL - Netherlands',
+          'NZ - New Zealand',
+          'PL - Poland',
+          'PT - Portugal',
+          'RO - Romania',
+          'SG - Singapore',
+          'SK - Slovakia',
+          'SI - Slovenia',
+          'ES - Spain',
+          'SE - Sweden',
+          'CH - Switzerland',
+          'UK - United Kingdom',
+          'US - United States'
+        ]
+      >;
+    stripePromotionCodes: Attribute.Component<
+      'stripe.stripe-promo-codes',
+      true
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::coupon-config.coupon-config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::coupon-config.coupon-config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiIapIap extends Schema.CollectionType {
+  collectionName: 'iaps';
+  info: {
+    singularName: 'iap';
+    pluralName: 'iaps';
+    displayName: 'IAP';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    internalName: Attribute.String;
+    appleProductIDs: Attribute.Component<'iap.apple-product-i-ds', true>;
+    googleSKUs: Attribute.Component<'iap.google-sk-us', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::iap.iap', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::iap.iap', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOfferingOffering extends Schema.CollectionType {
+  collectionName: 'offerings';
+  info: {
+    singularName: 'offering';
+    pluralName: 'offerings';
+    displayName: 'Offering';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    internalName: Attribute.String & Attribute.Required & Attribute.Unique;
+    description: Attribute.String;
+    apiIdentifier: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 1;
+        maxLength: 32;
+      }>;
+    stripeProductId: Attribute.String & Attribute.Required;
+    countries: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'AT - Austria',
+          'BE - Belgium',
+          'BG - Bulgaria',
+          'CA - Canada',
+          'HR - Croatia',
+          'CY - Cyprus',
+          'CZ - Czech Republic',
+          'DK - Denmark',
+          'EE - Estonia',
+          'FI - Finland',
+          'FR - France',
+          'DE - Germany',
+          'GR - Greece',
+          'HU - Hungary',
+          'IE - Ireland',
+          'IT - Italy',
+          'LV - Latvia',
+          'LT - Lithuania',
+          'LU - Luxembourg',
+          'MY - Malaysia',
+          'MT - Malta',
+          'NL - Netherlands',
+          'NZ - New Zealand',
+          'PL - Poland',
+          'PT - Portugal',
+          'RO - Romania',
+          'SG - Singapore',
+          'SK - Slovakia',
+          'SI - Slovenia',
+          'ES - Spain',
+          'SE - Sweden',
+          'CH - Switzerland',
+          'UK - United Kingdom',
+          'US - United States'
+        ]
+      >;
+    defaultPurchase: Attribute.Relation<
+      'api::offering.offering',
+      'oneToOne',
+      'api::purchase.purchase'
+    >;
+    experimentPurchase: Attribute.Relation<
+      'api::offering.offering',
+      'oneToOne',
+      'api::purchase.purchase'
+    >;
+    stripeLegacyPlans: Attribute.Component<'stripe.stripe-legacy-plans', true>;
+    capabilities: Attribute.Relation<
+      'api::offering.offering',
+      'manyToMany',
+      'api::capability.capability'
+    >;
+    commonContent: Attribute.Relation<
+      'api::offering.offering',
+      'oneToOne',
+      'api::common-content.common-content'
+    >;
+    couponConfig: Attribute.Relation<
+      'api::offering.offering',
+      'oneToOne',
+      'api::coupon-config.coupon-config'
+    >;
+    iap: Attribute.Relation<
+      'api::offering.offering',
+      'oneToOne',
+      'api::iap.iap'
+    >;
+    subGroups: Attribute.Relation<
+      'api::offering.offering',
+      'manyToMany',
+      'api::subgroup.subgroup'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::offering.offering',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::offering.offering',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPurchasePurchase extends Schema.CollectionType {
+  collectionName: 'purchases';
+  info: {
+    singularName: 'purchase';
+    pluralName: 'purchases';
+    displayName: 'Purchase';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    internalName: Attribute.String & Attribute.Required & Attribute.Unique;
+    description: Attribute.String;
+    stripePlanChoices: Attribute.Component<'stripe.stripe-plan-choices', true>;
+    purchaseDetails: Attribute.Relation<
+      'api::purchase.purchase',
+      'oneToOne',
+      'api::purchase-detail.purchase-detail'
+    >;
+    offering: Attribute.Relation<
+      'api::purchase.purchase',
+      'oneToOne',
+      'api::offering.offering'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::purchase.purchase',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::purchase.purchase',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPurchaseDetailPurchaseDetail extends Schema.CollectionType {
+  collectionName: 'purchase_details';
+  info: {
+    singularName: 'purchase-detail';
+    pluralName: 'purchase-details';
+    displayName: 'Purchase details';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    internalName: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    details: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    productName: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    subtitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    webIcon: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::purchase-detail.purchase-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::purchase-detail.purchase-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::purchase-detail.purchase-detail',
+      'oneToMany',
+      'api::purchase-detail.purchase-detail'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -857,6 +1319,43 @@ export interface ApiServiceService extends Schema.CollectionType {
   };
 }
 
+export interface ApiSubgroupSubgroup extends Schema.CollectionType {
+  collectionName: 'subgroups';
+  info: {
+    singularName: 'subgroup';
+    pluralName: 'subgroups';
+    displayName: 'Sub group';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    internalName: Attribute.String & Attribute.Required & Attribute.Unique;
+    groupName: Attribute.String;
+    offerings: Attribute.Relation<
+      'api::subgroup.subgroup',
+      'manyToMany',
+      'api::offering.offering'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subgroup.subgroup',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subgroup.subgroup',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -871,12 +1370,19 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
       'api::capability.capability': ApiCapabilityCapability;
+      'api::common-content.common-content': ApiCommonContentCommonContent;
+      'api::coupon-config.coupon-config': ApiCouponConfigCouponConfig;
+      'api::iap.iap': ApiIapIap;
+      'api::offering.offering': ApiOfferingOffering;
+      'api::purchase.purchase': ApiPurchasePurchase;
+      'api::purchase-detail.purchase-detail': ApiPurchaseDetailPurchaseDetail;
       'api::service.service': ApiServiceService;
+      'api::subgroup.subgroup': ApiSubgroupSubgroup;
     }
   }
 }

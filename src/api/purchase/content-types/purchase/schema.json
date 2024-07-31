@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "purchases",
+  "info": {
+    "singularName": "purchase",
+    "pluralName": "purchases",
+    "displayName": "Purchase",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "internalName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "stripePlanChoices": {
+      "displayName": "Stripe Plan Choices",
+      "type": "component",
+      "repeatable": true,
+      "component": "stripe.stripe-plan-choices"
+    },
+    "purchaseDetails": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::purchase-detail.purchase-detail"
+    },
+    "offering": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::offering.offering"
+    }
+  }
+}

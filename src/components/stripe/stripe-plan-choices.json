@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_stripe_stripe_plan_choices",
+  "info": {
+    "displayName": "Stripe Plan Choices",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "stripePlanChoice": {
+      "type": "string",
+      "minLength": 2
+    }
+  }
+}

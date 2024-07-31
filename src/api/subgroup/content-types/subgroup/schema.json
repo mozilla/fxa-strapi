@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subgroups",
+  "info": {
+    "singularName": "subgroup",
+    "pluralName": "subgroups",
+    "displayName": "Sub group",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "internalName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "groupName": {
+      "type": "string"
+    },
+    "offerings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::offering.offering",
+      "inversedBy": "subGroups"
+    }
+  }
+}
