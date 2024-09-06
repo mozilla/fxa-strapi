@@ -19,19 +19,19 @@ You can use the Strapi [Command Line Interface](https://docs.strapi.io/dev-docs/
 
 ### Developing
 
-You can start the application with livereload via `yarn develop`.
+You can start the application with livereload via `npm run develop`.
 
 [Strapi CLI develop](https://docs.strapi.io/dev-docs/cli#strapi-develop)
 
 ### Starting
 
-You can start the application without livereload via `yarn start`.
+You can start the application without livereload via `npm run start`.
 
 [Strapi CLI start](https://docs.strapi.io/dev-docs/cli#strapi-start)
 
 ### Building
 
-You can build the application via `yarn build`
+You can build the application via `npm run build`
 
 [Strapi CLI build](https://docs.strapi.io/dev-docs/cli#strapi-build)
 
