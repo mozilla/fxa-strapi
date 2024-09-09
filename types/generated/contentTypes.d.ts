@@ -914,7 +914,12 @@ export interface ApiCommonContentCommonContent extends Schema.CollectionType {
     newsletterSlug: Attribute.JSON &
       Attribute.CustomField<
         'plugin::multi-select.multi-select',
-        ['mozilla-accounts', 'security-privacy-news']
+        [
+          'mdnplus',
+          'mozilla-accounts',
+          'mozilla-and-you',
+          'security-privacy-news'
+        ]
       > &
       Attribute.SetPluginOptions<{
         i18n: {
