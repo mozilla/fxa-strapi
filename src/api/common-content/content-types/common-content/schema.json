@@ -122,7 +122,9 @@
       },
       "type": "customField",
       "options": [
+        "mdnplus",
         "mozilla-accounts",
+        "mozilla-and-you",
         "security-privacy-news"
       ],
       "customField": "plugin::multi-select.multi-select"
