@@ -905,10 +905,7 @@ export interface ApiCommonContentCommonContent extends Schema.CollectionType {
         };
       }>;
     newsletterLabelTextCode: Attribute.JSON &
-      Attribute.CustomField<
-        'plugin::multi-select.multi-select',
-        ['mdnplus', 'snp']
-      > &
+      Attribute.CustomField<'plugin::multi-select.multi-select', ['snp']> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -917,7 +914,12 @@ export interface ApiCommonContentCommonContent extends Schema.CollectionType {
     newsletterSlug: Attribute.JSON &
       Attribute.CustomField<
         'plugin::multi-select.multi-select',
-        ['mozilla-accounts', 'mdnplus', 'security-privacy-news']
+        [
+          'mdnplus',
+          'mozilla-accounts',
+          'mozilla-and-you',
+          'security-privacy-news'
+        ]
       > &
       Attribute.SetPluginOptions<{
         i18n: {

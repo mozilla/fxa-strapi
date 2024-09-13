@@ -110,7 +110,6 @@
       },
       "type": "customField",
       "options": [
-        "mdnplus",
         "snp"
       ],
       "customField": "plugin::multi-select.multi-select"
@@ -123,8 +122,9 @@
       },
       "type": "customField",
       "options": [
-        "mozilla-accounts",
         "mdnplus",
+        "mozilla-accounts",
+        "mozilla-and-you",
         "security-privacy-news"
       ],
       "customField": "plugin::multi-select.multi-select"
