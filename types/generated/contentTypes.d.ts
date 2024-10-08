@@ -901,13 +901,6 @@ export interface ApiCommonContentCommonContent extends Schema.CollectionType {
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
-        };
-      }>;
-    newsletterLabelTextCode: Attribute.JSON &
-      Attribute.CustomField<'plugin::multi-select.multi-select', ['snp']> &
-      Attribute.SetPluginOptions<{
-        i18n: {
           localized: true;
         };
       }>;
@@ -923,7 +916,13 @@ export interface ApiCommonContentCommonContent extends Schema.CollectionType {
       > &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
+        };
+      }>;
+    newsletterLabelTextCode: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
