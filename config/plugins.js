@@ -4,7 +4,8 @@ module.exports = () => ({
       playgroundAlways: true,
       apolloServer: {
         introspection: true
-      }
+      },
+      defaultLimit: 100
     }
   }
 });
