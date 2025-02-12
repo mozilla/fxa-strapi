@@ -42,6 +42,20 @@ export interface StripeStripeLegacyPlans extends Struct.ComponentSchema {
   };
 }
 
+export interface StripeStripeLegacyIapPrices extends Struct.ComponentSchema {
+  collectionName: 'components_stripe_stripe_legacy_iap_prices';
+  info: {
+    description: '';
+    displayName: 'Stripe Legacy IAP Prices';
+  };
+  attributes: {
+    stripeLegacyIapPrice: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
+  };
+}
+
 export interface StripeStripePlanChoices extends Struct.ComponentSchema {
   collectionName: 'components_stripe_stripe_plan_choices';
   info: {
@@ -50,6 +64,20 @@ export interface StripeStripePlanChoices extends Struct.ComponentSchema {
   };
   attributes: {
     stripePlanChoice: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+  };
+}
+
+export interface StripeStripeIapPlanChoices extends Struct.ComponentSchema {
+  collectionName: 'components_stripe_stripe_iap_plan_choices';
+  info: {
+    description: '';
+    displayName: 'Stripe IAP Plan Choices';
+  };
+  attributes: {
+    stripeIapPlanChoice: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 2;
       }>;
@@ -75,7 +103,9 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'iap.apple-product-i-ds': IapAppleProductIDs;
       'iap.google-sk-us': IapGoogleSkUs;
+      'stripe.stripe-iap-plan-choices': StripeStripeIapPlanChoices;
       'stripe.stripe-legacy-plans': StripeStripeLegacyPlans;
+      'stripe.stripe-legacy-iap-prices': StripeStripeLegacyIapPrices;
       'stripe.stripe-plan-choices': StripeStripePlanChoices;
       'stripe.stripe-promo-codes': StripeStripePromoCodes;
     }

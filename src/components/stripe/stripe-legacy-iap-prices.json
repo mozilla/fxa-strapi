@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_stripe_stripe_legacy_iap_prices",
+  "info": {
+    "displayName": "Stripe Legacy IAP Prices",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "stripeLegacyIapPrice": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

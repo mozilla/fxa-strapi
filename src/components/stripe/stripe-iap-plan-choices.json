@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_stripe_stripe_iap_plan_choices",
+  "info": {
+    "displayName": "Stripe IAP Plan Choices",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "stripeIapPlanChoice": {
+      "type": "string",
+      "minLength": 2
+    }
+  }
+}

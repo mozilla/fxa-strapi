@@ -26,6 +26,12 @@
       "repeatable": true,
       "component": "stripe.stripe-plan-choices"
     },
+    "stripeIapPlanChoices": {
+      "displayName": "Stripe IAP Plan Choices",
+      "type": "component",
+      "repeatable": true,
+      "component": "stripe.stripe-iap-plan-choices"
+    },
     "purchaseDetails": {
       "type": "relation",
       "relation": "oneToOne",

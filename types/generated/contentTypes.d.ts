@@ -724,6 +724,10 @@ export interface ApiOfferingOffering extends Struct.CollectionTypeSchema {
       'stripe.stripe-legacy-plans',
       true
     >;
+    stripeLegacyIapPrices: Schema.Attribute.Component<
+    'stripe.stripe-legacy-iap-prices',
+    true
+  >;
     stripeProductId: Schema.Attribute.String & Schema.Attribute.Required;
     subGroups: Schema.Attribute.Relation<
       'manyToMany',
@@ -837,6 +841,10 @@ export interface ApiPurchasePurchase extends Struct.CollectionTypeSchema {
       'stripe.stripe-plan-choices',
       true
     >;
+    stripeIapPlanChoices: Schema.Attribute.Component<
+    'stripe.stripe-iap-plan-choices',
+    true
+  >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -86,6 +86,11 @@
       "repeatable": true,
       "component": "stripe.stripe-legacy-plans"
     },
+    "stripeLegacyIapPrices": {
+      "type": "component",
+      "repeatable": true,
+      "component": "stripe.stripe-legacy-iap-prices"
+    },
     "capabilities": {
       "type": "relation",
       "relation": "manyToMany",
