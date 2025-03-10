@@ -1,15 +1,15 @@
 {
-  "collectionName": "components_stripe_stripe_plan_choices",
+  "collectionName": "components_iap_stripe_plan_choices",
   "info": {
     "displayName": "Stripe Plan Choices",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "stripePlanChoice": {
+    "stripePlanChoices": {
       "type": "string",
-      "regex": "^(price_|plan_)",
-      "unique": true
+      "unique": true,
+      "regex": "^(price_|plan_)"
     }
   }
 }
