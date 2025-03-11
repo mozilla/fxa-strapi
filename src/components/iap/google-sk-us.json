@@ -8,7 +8,9 @@
   "attributes": {
     "googleSKU": {
       "type": "string",
-      "minLength": 2
+      "minLength": 2,
+      "required": true,
+      "unique": true
     }
   }
 }

@@ -8,6 +8,8 @@ export interface IapAppleProductIDs extends Struct.ComponentSchema {
   };
   attributes: {
     appleProductID: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 2;
       }>;
@@ -22,9 +24,37 @@ export interface IapGoogleSkUs extends Struct.ComponentSchema {
   };
   attributes: {
     googleSKU: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 2;
       }>;
+  };
+}
+
+export interface IapStripeLegacyIapPrices extends Struct.ComponentSchema {
+  collectionName: 'components_iap_stripe_legacy_iap_prices';
+  info: {
+    description: '';
+    displayName: 'Stripe Legacy IAP Prices';
+  };
+  attributes: {
+    stripeLegacyIapPrices: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+  };
+}
+
+export interface IapStripePlanChoices extends Struct.ComponentSchema {
+  collectionName: 'components_iap_stripe_plan_choices';
+  info: {
+    description: '';
+    displayName: 'Stripe Plan Choices';
+  };
+  attributes: {
+    stripePlanChoices: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
   };
 }
 
@@ -36,9 +66,8 @@ export interface StripeStripeLegacyPlans extends Struct.ComponentSchema {
   };
   attributes: {
     stripeLegacyPlan: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
   };
 }
 
@@ -50,9 +79,8 @@ export interface StripeStripePlanChoices extends Struct.ComponentSchema {
   };
   attributes: {
     stripePlanChoice: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 2;
-      }>;
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
   };
 }
 
@@ -64,6 +92,7 @@ export interface StripeStripePromoCodes extends Struct.ComponentSchema {
   };
   attributes: {
     PromoCode: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 2;
       }>;
@@ -75,6 +104,8 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'iap.apple-product-i-ds': IapAppleProductIDs;
       'iap.google-sk-us': IapGoogleSkUs;
+      'iap.stripe-legacy-iap-prices': IapStripeLegacyIapPrices;
+      'iap.stripe-plan-choices': IapStripePlanChoices;
       'stripe.stripe-legacy-plans': StripeStripeLegacyPlans;
       'stripe.stripe-plan-choices': StripeStripePlanChoices;
       'stripe.stripe-promo-codes': StripeStripePromoCodes;

@@ -8,7 +8,9 @@
   "attributes": {
     "stripeLegacyPlan": {
       "type": "string",
-      "minLength": 1
+      "regex": "^(price_|plan_)",
+      "unique": true,
+      "required": true
     }
   }
 }
