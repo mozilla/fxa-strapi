@@ -8,6 +8,8 @@ export interface IapAppleProductIDs extends Struct.ComponentSchema {
   };
   attributes: {
     appleProductID: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 2;
       }>;
@@ -22,6 +24,8 @@ export interface IapGoogleSkUs extends Struct.ComponentSchema {
   };
   attributes: {
     googleSKU: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 2;
       }>;
@@ -35,7 +39,9 @@ export interface IapStripeLegacyIapPrices extends Struct.ComponentSchema {
     displayName: 'Stripe Legacy IAP Prices';
   };
   attributes: {
-    stripeLegacyIapPrices: Schema.Attribute.String & Schema.Attribute.Unique;
+    stripeLegacyIapPrices: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
   };
 }
 
@@ -46,7 +52,9 @@ export interface IapStripePlanChoices extends Struct.ComponentSchema {
     displayName: 'Stripe Plan Choices';
   };
   attributes: {
-    stripePlanChoices: Schema.Attribute.String & Schema.Attribute.Unique;
+    stripePlanChoices: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
   };
 }
 
@@ -57,7 +65,9 @@ export interface StripeStripeLegacyPlans extends Struct.ComponentSchema {
     displayName: 'Stripe Legacy Plans';
   };
   attributes: {
-    stripeLegacyPlan: Schema.Attribute.String & Schema.Attribute.Unique;
+    stripeLegacyPlan: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
   };
 }
 
@@ -68,7 +78,9 @@ export interface StripeStripePlanChoices extends Struct.ComponentSchema {
     displayName: 'Stripe Plan Choices';
   };
   attributes: {
-    stripePlanChoice: Schema.Attribute.String & Schema.Attribute.Unique;
+    stripePlanChoice: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
   };
 }
 
@@ -80,6 +92,7 @@ export interface StripeStripePromoCodes extends Struct.ComponentSchema {
   };
   attributes: {
     PromoCode: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 2;
       }>;

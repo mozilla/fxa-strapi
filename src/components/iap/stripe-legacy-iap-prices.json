@@ -9,7 +9,8 @@
     "stripeLegacyIapPrices": {
       "type": "string",
       "unique": true,
-      "regex": "^(price_|plan_)"
+      "regex": "^(price_|plan_)",
+      "required": true
     }
   }
 }
