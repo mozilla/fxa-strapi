@@ -571,7 +571,7 @@ export interface ApiCouponConfigCouponConfig
           'ES - Spain',
           'SE - Sweden',
           'CH - Switzerland',
-          'UK - United Kingdom',
+          'GB - United Kingdom',
           'US - United States',
         ]
       >;
@@ -689,7 +689,7 @@ export interface ApiOfferingOffering extends Struct.CollectionTypeSchema {
           'ES - Spain',
           'SE - Sweden',
           'CH - Switzerland',
-          'UK - United Kingdom',
+          'GB - United Kingdom',
           'US - United States',
         ]
       >;
