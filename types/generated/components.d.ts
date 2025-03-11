@@ -28,6 +28,28 @@ export interface IapGoogleSkUs extends Struct.ComponentSchema {
   };
 }
 
+export interface IapStripeLegacyIapPrices extends Struct.ComponentSchema {
+  collectionName: 'components_iap_stripe_legacy_iap_prices';
+  info: {
+    description: '';
+    displayName: 'Stripe Legacy IAP Prices';
+  };
+  attributes: {
+    stripeLegacyIapPrices: Schema.Attribute.String & Schema.Attribute.Unique;
+  };
+}
+
+export interface IapStripePlanChoices extends Struct.ComponentSchema {
+  collectionName: 'components_iap_stripe_plan_choices';
+  info: {
+    description: '';
+    displayName: 'Stripe Plan Choices';
+  };
+  attributes: {
+    stripePlanChoices: Schema.Attribute.String & Schema.Attribute.Unique;
+  };
+}
+
 export interface StripeStripeLegacyPlans extends Struct.ComponentSchema {
   collectionName: 'components_stripe_stripe_legacy_plans';
   info: {
@@ -35,10 +57,7 @@ export interface StripeStripeLegacyPlans extends Struct.ComponentSchema {
     displayName: 'Stripe Legacy Plans';
   };
   attributes: {
-    stripeLegacyPlan: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    stripeLegacyPlan: Schema.Attribute.String & Schema.Attribute.Unique;
   };
 }
 
@@ -49,10 +68,7 @@ export interface StripeStripePlanChoices extends Struct.ComponentSchema {
     displayName: 'Stripe Plan Choices';
   };
   attributes: {
-    stripePlanChoice: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 2;
-      }>;
+    stripePlanChoice: Schema.Attribute.String & Schema.Attribute.Unique;
   };
 }
 
@@ -75,6 +91,8 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'iap.apple-product-i-ds': IapAppleProductIDs;
       'iap.google-sk-us': IapGoogleSkUs;
+      'iap.stripe-legacy-iap-prices': IapStripeLegacyIapPrices;
+      'iap.stripe-plan-choices': IapStripePlanChoices;
       'stripe.stripe-legacy-plans': StripeStripeLegacyPlans;
       'stripe.stripe-plan-choices': StripeStripePlanChoices;
       'stripe.stripe-promo-codes': StripeStripePromoCodes;
