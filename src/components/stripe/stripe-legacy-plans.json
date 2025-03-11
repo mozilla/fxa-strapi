@@ -9,7 +9,8 @@
     "stripeLegacyPlan": {
       "type": "string",
       "regex": "^(price_|plan_)",
-      "unique": true
+      "unique": true,
+      "required": true
     }
   }
 }
