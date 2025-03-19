@@ -52,7 +52,7 @@
         "ES - Spain",
         "SE - Sweden",
         "CH - Switzerland",
-        "UK - United Kingdom",
+        "GB - United Kingdom",
         "US - United States"
       ],
       "customField": "plugin::multi-select.multi-select"

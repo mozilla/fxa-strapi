@@ -571,7 +571,7 @@ export interface ApiCouponConfigCouponConfig
           'ES - Spain',
           'SE - Sweden',
           'CH - Switzerland',
-          'UK - United Kingdom',
+          'GB - United Kingdom',
           'US - United States',
         ]
       >;
@@ -620,6 +620,14 @@ export interface ApiIapIap extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::iap.iap'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    stripeLegacyIapPrices: Schema.Attribute.Component<
+      'iap.stripe-legacy-iap-prices',
+      true
+    >;
+    stripePlanChoices: Schema.Attribute.Component<
+      'iap.stripe-plan-choices',
+      true
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -689,7 +697,7 @@ export interface ApiOfferingOffering extends Struct.CollectionTypeSchema {
           'ES - Spain',
           'SE - Sweden',
           'CH - Switzerland',
-          'UK - United Kingdom',
+          'GB - United Kingdom',
           'US - United States',
         ]
       >;

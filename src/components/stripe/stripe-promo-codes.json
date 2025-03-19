@@ -9,7 +9,8 @@
     "PromoCode": {
       "type": "string",
       "unique": false,
-      "minLength": 2
+      "minLength": 2,
+      "required": true
     }
   }
 }
