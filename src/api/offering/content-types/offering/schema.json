@@ -102,16 +102,17 @@
       "relation": "oneToOne",
       "target": "api::coupon-config.coupon-config"
     },
-    "iap": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::iap.iap"
-    },
     "subGroups": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::subgroup.subgroup",
       "mappedBy": "offerings"
+    },
+    "iaps": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::iap.iap",
+      "mappedBy": "offering"
     }
   }
 }
