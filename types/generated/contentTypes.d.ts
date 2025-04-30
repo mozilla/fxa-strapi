@@ -610,24 +610,22 @@ export interface ApiIapIap extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    appleProductIDs: Schema.Attribute.Component<'iap.apple-product-i-ds', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    googleSKUs: Schema.Attribute.Component<'iap.google-sk-us', true>;
     internalName: Schema.Attribute.String;
+    interval: Schema.Attribute.Enumeration<
+      ['daily', 'weekly', 'monthly', 'halfyearly', 'yearly']
+    > &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::iap.iap'> &
       Schema.Attribute.Private;
+    offering: Schema.Attribute.Relation<'manyToOne', 'api::offering.offering'>;
     publishedAt: Schema.Attribute.DateTime;
-    stripeLegacyIapPrices: Schema.Attribute.Component<
-      'iap.stripe-legacy-iap-prices',
-      true
-    >;
-    stripePlanChoices: Schema.Attribute.Component<
-      'iap.stripe-plan-choices',
-      true
-    >;
+    storeID: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -717,7 +715,7 @@ export interface ApiOfferingOffering extends Struct.CollectionTypeSchema {
       'oneToOne',
       'api::purchase.purchase'
     >;
-    iap: Schema.Attribute.Relation<'oneToOne', 'api::iap.iap'>;
+    iaps: Schema.Attribute.Relation<'oneToMany', 'api::iap.iap'>;
     internalName: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;

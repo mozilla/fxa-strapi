@@ -17,25 +17,27 @@
       "required": false,
       "unique": false
     },
-    "appleProductIDs": {
-      "type": "component",
-      "repeatable": true,
-      "component": "iap.apple-product-i-ds"
+    "storeID": {
+      "type": "string",
+      "unique": true,
+      "required": true
     },
-    "googleSKUs": {
-      "type": "component",
-      "repeatable": true,
-      "component": "iap.google-sk-us"
+    "interval": {
+      "type": "enumeration",
+      "enum": [
+        "daily",
+        "weekly",
+        "monthly",
+        "halfyearly",
+        "yearly"
+      ],
+      "required": true
     },
-    "stripeLegacyIapPrices": {
-      "type": "component",
-      "repeatable": true,
-      "component": "iap.stripe-legacy-iap-prices"
-    },
-    "stripePlanChoices": {
-      "type": "component",
-      "repeatable": true,
-      "component": "iap.stripe-plan-choices"
+    "offering": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::offering.offering",
+      "inversedBy": "iaps"
     }
   }
 }
