@@ -615,7 +615,7 @@ export interface ApiIapIap extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     internalName: Schema.Attribute.String;
     interval: Schema.Attribute.Enumeration<
-      ['monthly', 'sixmonthly', 'yearly']
+      ['daily', 'weekly', 'monthly', 'halfyearly', 'yearly']
     > &
       Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
