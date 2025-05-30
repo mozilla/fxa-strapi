@@ -33,6 +33,7 @@
     },
     "countries": {
       "type": "customField",
+      "required": true,
       "options": [
         "AT - Austria",
         "BE - Belgium",
