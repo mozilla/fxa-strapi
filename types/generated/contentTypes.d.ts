@@ -506,7 +506,7 @@ export interface ApiCommonContentCommonContent
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     termsOfServiceUrl: Schema.Attribute.String &
@@ -660,6 +660,7 @@ export interface ApiOfferingOffering extends Struct.CollectionTypeSchema {
       'api::common-content.common-content'
     >;
     countries: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<
         'plugin::multi-select.multi-select',
         [
