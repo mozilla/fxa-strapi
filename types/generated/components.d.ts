@@ -1,5 +1,30 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AccountsPageConfig extends Struct.ComponentSchema {
+  collectionName: 'components_accounts_page_configs';
+  info: {
+    displayName: 'PageConfig';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    headline: Schema.Attribute.String;
+    primaryButtonText: Schema.Attribute.String;
+  };
+}
+
+export interface AccountsShared extends Struct.ComponentSchema {
+  collectionName: 'components_accounts_shareds';
+  info: {
+    description: '';
+    displayName: 'Shared';
+  };
+  attributes: {
+    buttonColor: Schema.Attribute.String;
+    logoAltText: Schema.Attribute.String;
+    logoUrl: Schema.Attribute.String;
+  };
+}
+
 export interface IapAppleProductIDs extends Struct.ComponentSchema {
   collectionName: 'components_iap_apple_product_i_ds';
   info: {
@@ -102,6 +127,8 @@ export interface StripeStripePromoCodes extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'accounts.page-config': AccountsPageConfig;
+      'accounts.shared': AccountsShared;
       'iap.apple-product-i-ds': IapAppleProductIDs;
       'iap.google-sk-us': IapGoogleSkUs;
       'iap.stripe-legacy-iap-prices': IapStripeLegacyIapPrices;
