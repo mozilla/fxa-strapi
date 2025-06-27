@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_accounts_shareds",
+  "info": {
+    "displayName": "Shared",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "buttonColor": {
+      "type": "string"
+    },
+    "logoUrl": {
+      "type": "string"
+    },
+    "logoAltText": {
+      "type": "string"
+    }
+  }
+}
