@@ -897,6 +897,10 @@ export interface ApiRelyingPartyRelyingParty
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    VerifyShortCodeEmail: Schema.Attribute.Component<
+      'accounts.email-config',
+      false
+    >;
   };
 }
 

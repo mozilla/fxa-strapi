@@ -10,6 +10,7 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {},
   "attributes": {
     "clientId": {
       "type": "string"
@@ -22,28 +23,33 @@
     },
     "shared": {
       "type": "component",
-      "repeatable": false,
-      "component": "accounts.shared"
+      "component": "accounts.shared",
+      "repeatable": false
     },
     "EmailFirstPage": {
       "type": "component",
-      "repeatable": false,
-      "component": "accounts.page-config"
+      "component": "accounts.page-config",
+      "repeatable": false
     },
     "SignupSetPasswordPage": {
       "type": "component",
-      "repeatable": false,
-      "component": "accounts.page-config"
+      "component": "accounts.page-config",
+      "repeatable": false
     },
     "SignupConfirmCodePage": {
       "type": "component",
-      "repeatable": false,
-      "component": "accounts.page-config"
+      "component": "accounts.page-config",
+      "repeatable": false
     },
     "SignupConfirmedSyncPage": {
       "type": "component",
-      "repeatable": false,
-      "component": "accounts.page-config"
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "VerifyShortCodeEmail": {
+      "type": "component",
+      "component": "accounts.email-config",
+      "repeatable": false
     }
   }
 }

@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AccountsEmailConfig extends Struct.ComponentSchema {
+  collectionName: 'components_accounts_email_configs';
+  info: {
+    displayName: 'EmailConfig';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    headline: Schema.Attribute.Text & Schema.Attribute.Required;
+    subject: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface AccountsPageConfig extends Struct.ComponentSchema {
   collectionName: 'components_accounts_page_configs';
   info: {
@@ -20,6 +32,9 @@ export interface AccountsShared extends Struct.ComponentSchema {
   };
   attributes: {
     buttonColor: Schema.Attribute.String;
+    emailFromName: Schema.Attribute.String;
+    emailLogoAltText: Schema.Attribute.String;
+    emailLogoUrl: Schema.Attribute.String;
     logoAltText: Schema.Attribute.String;
     logoUrl: Schema.Attribute.String;
   };
@@ -127,6 +142,7 @@ export interface StripeStripePromoCodes extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'accounts.email-config': AccountsEmailConfig;
       'accounts.page-config': AccountsPageConfig;
       'accounts.shared': AccountsShared;
       'iap.apple-product-i-ds': IapAppleProductIDs;
