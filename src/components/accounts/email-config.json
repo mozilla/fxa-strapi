@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_accounts_email_configs",
+  "info": {
+    "displayName": "EmailConfig"
+  },
+  "options": {},
+  "attributes": {
+    "subject": {
+      "type": "string",
+      "required": true
+    },
+    "headline": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}
