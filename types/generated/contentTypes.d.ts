@@ -880,6 +880,10 @@ export interface ApiRelyingPartyRelyingParty
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
+    NewDeviceLoginEmail: Schema.Attribute.Component<
+      'accounts.email-config',
+      false
+    >;
     publishedAt: Schema.Attribute.DateTime;
     shared: Schema.Attribute.Component<'accounts.shared', false>;
     SigninPage: Schema.Attribute.Component<'accounts.page-config', false>;
@@ -906,6 +910,10 @@ export interface ApiRelyingPartyRelyingParty
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    VerifyLoginCodeEmail: Schema.Attribute.Component<
+      'accounts.email-config',
+      false
+    >;
     VerifyShortCodeEmail: Schema.Attribute.Component<
       'accounts.email-config',
       false
