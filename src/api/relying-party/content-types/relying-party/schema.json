@@ -43,23 +43,33 @@
     },
     "SignupConfirmedSyncPage": {
       "type": "component",
-      "repeatable": false,
-      "component": "accounts.page-config"
+      "component": "accounts.page-config",
+      "repeatable": false
     },
     "SigninPage": {
       "type": "component",
-      "repeatable": false,
-      "component": "accounts.page-config"
+      "component": "accounts.page-config",
+      "repeatable": false
     },
     "SigninTokenCodePage": {
       "type": "component",
-      "repeatable": false,
-      "component": "accounts.page-config"
+      "component": "accounts.page-config",
+      "repeatable": false
     },
     "SigninUnblockCodePage": {
       "type": "component",
-      "repeatable": false,
-      "component": "accounts.page-config"
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "NewDeviceLoginEmail": {
+      "type": "component",
+      "component": "accounts.email-config",
+      "repeatable": false
+    },
+    "VerifyLoginCodeEmail": {
+      "type": "component",
+      "component": "accounts.email-config",
+      "repeatable": false
     },
     "VerifyShortCodeEmail": {
       "type": "component",
