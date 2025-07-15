@@ -882,6 +882,15 @@ export interface ApiRelyingPartyRelyingParty
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     shared: Schema.Attribute.Component<'accounts.shared', false>;
+    SigninPage: Schema.Attribute.Component<'accounts.page-config', false>;
+    SigninTokenCodePage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
+    SigninUnblockCodePage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
     SignupConfirmCodePage: Schema.Attribute.Component<
       'accounts.page-config',
       false
