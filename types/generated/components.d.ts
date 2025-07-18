@@ -31,12 +31,14 @@ export interface AccountsShared extends Struct.ComponentSchema {
     displayName: 'Shared';
   };
   attributes: {
+    backgroundColor: Schema.Attribute.String;
     buttonColor: Schema.Attribute.String;
     emailFromName: Schema.Attribute.String;
     emailLogoAltText: Schema.Attribute.String;
     emailLogoUrl: Schema.Attribute.String;
     logoAltText: Schema.Attribute.String;
     logoUrl: Schema.Attribute.String;
+    pageTitle: Schema.Attribute.String;
   };
 }
 
