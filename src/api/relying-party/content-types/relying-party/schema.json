@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "relying_parties",
+  "info": {
+    "singularName": "relying-party",
+    "pluralName": "relying-parties",
+    "displayName": "Relying Party",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "clientId": {
+      "type": "string"
+    },
+    "entrypoint": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "shared": {
+      "type": "component",
+      "component": "accounts.shared",
+      "repeatable": false
+    },
+    "EmailFirstPage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "SignupSetPasswordPage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "SignupConfirmCodePage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "SignupConfirmedSyncPage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "SigninPage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "SigninTokenCodePage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "SigninUnblockCodePage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "NewDeviceLoginEmail": {
+      "type": "component",
+      "component": "accounts.email-config",
+      "repeatable": false
+    },
+    "VerifyLoginCodeEmail": {
+      "type": "component",
+      "component": "accounts.email-config",
+      "repeatable": false
+    },
+    "VerifyShortCodeEmail": {
+      "type": "component",
+      "component": "accounts.email-config",
+      "repeatable": false
+    }
+  }
+}

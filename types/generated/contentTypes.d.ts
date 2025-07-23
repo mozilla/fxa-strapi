@@ -34,6 +34,10 @@ export interface AdminApiToken extends Struct.CollectionTypeSchema {
         minLength: 1;
       }> &
       Schema.Attribute.DefaultTo<''>;
+    encryptedKey: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
     expiresAt: Schema.Attribute.DateTime;
     lastUsedAt: Schema.Attribute.DateTime;
     lifespan: Schema.Attribute.BigInteger;
@@ -850,6 +854,73 @@ export interface ApiPurchasePurchase extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiRelyingPartyRelyingParty
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'relying_parties';
+  info: {
+    description: '';
+    displayName: 'Relying Party';
+    pluralName: 'relying-parties';
+    singularName: 'relying-party';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    clientId: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    EmailFirstPage: Schema.Attribute.Component<'accounts.page-config', false>;
+    entrypoint: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::relying-party.relying-party'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    NewDeviceLoginEmail: Schema.Attribute.Component<
+      'accounts.email-config',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    shared: Schema.Attribute.Component<'accounts.shared', false>;
+    SigninPage: Schema.Attribute.Component<'accounts.page-config', false>;
+    SigninTokenCodePage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
+    SigninUnblockCodePage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
+    SignupConfirmCodePage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
+    SignupConfirmedSyncPage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
+    SignupSetPasswordPage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    VerifyLoginCodeEmail: Schema.Attribute.Component<
+      'accounts.email-config',
+      false
+    >;
+    VerifyShortCodeEmail: Schema.Attribute.Component<
+      'accounts.email-config',
+      false
+    >;
+  };
+}
+
 export interface ApiServiceService extends Struct.CollectionTypeSchema {
   collectionName: 'services';
   info: {
@@ -1440,6 +1511,7 @@ declare module '@strapi/strapi' {
       'api::offering.offering': ApiOfferingOffering;
       'api::purchase-detail.purchase-detail': ApiPurchaseDetailPurchaseDetail;
       'api::purchase.purchase': ApiPurchasePurchase;
+      'api::relying-party.relying-party': ApiRelyingPartyRelyingParty;
       'api::service.service': ApiServiceService;
       'api::subgroup.subgroup': ApiSubgroupSubgroup;
       'plugin::content-releases.release': PluginContentReleasesRelease;
