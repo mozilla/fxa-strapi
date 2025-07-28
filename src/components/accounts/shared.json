@@ -23,6 +23,12 @@
     },
     "emailLogoAltText": {
       "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "pageTitle": {
+      "type": "string"
     }
   }
 }
