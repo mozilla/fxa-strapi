@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_accounts_feature_flags",
+  "info": {
+    "displayName": "FeatureFlags"
+  },
+  "options": {},
+  "attributes": {
+    "syncConfirmedPageHideCTA": {
+      "type": "boolean"
+    },
+    "syncHidePromoAfterLogin": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}
