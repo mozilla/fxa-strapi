@@ -12,6 +12,17 @@ export interface AccountsEmailConfig extends Struct.ComponentSchema {
   };
 }
 
+export interface AccountsFeatureFlags extends Struct.ComponentSchema {
+  collectionName: 'components_accounts_feature_flags';
+  info: {
+    displayName: 'FeatureFlags';
+  };
+  attributes: {
+    syncConfirmedPageHideCTA: Schema.Attribute.Boolean;
+    syncHidePromoAfterLogin: Schema.Attribute.Boolean;
+  };
+}
+
 export interface AccountsPageConfig extends Struct.ComponentSchema {
   collectionName: 'components_accounts_page_configs';
   info: {
@@ -31,12 +42,17 @@ export interface AccountsShared extends Struct.ComponentSchema {
     displayName: 'Shared';
   };
   attributes: {
+    backgroundColor: Schema.Attribute.String;
     buttonColor: Schema.Attribute.String;
     emailFromName: Schema.Attribute.String;
     emailLogoAltText: Schema.Attribute.String;
     emailLogoUrl: Schema.Attribute.String;
+    featureFlags: Schema.Attribute.Component<'accounts.feature-flags', false>;
+    headerLogoAltText: Schema.Attribute.String;
+    headerLogoUrl: Schema.Attribute.String;
     logoAltText: Schema.Attribute.String;
     logoUrl: Schema.Attribute.String;
+    pageTitle: Schema.Attribute.String;
   };
 }
 
@@ -143,6 +159,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'accounts.email-config': AccountsEmailConfig;
+      'accounts.feature-flags': AccountsFeatureFlags;
       'accounts.page-config': AccountsPageConfig;
       'accounts.shared': AccountsShared;
       'iap.apple-product-i-ds': IapAppleProductIDs;

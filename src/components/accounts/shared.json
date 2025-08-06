@@ -23,6 +23,23 @@
     },
     "emailLogoAltText": {
       "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "pageTitle": {
+      "type": "string"
+    },
+    "headerLogoUrl": {
+      "type": "string"
+    },
+    "headerLogoAltText": {
+      "type": "string"
+    },
+    "featureFlags": {
+      "type": "component",
+      "component": "accounts.feature-flags",
+      "repeatable": false
     }
   }
 }
