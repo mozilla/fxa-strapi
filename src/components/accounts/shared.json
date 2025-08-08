@@ -40,6 +40,9 @@
       "type": "component",
       "component": "accounts.feature-flags",
       "repeatable": false
+    },
+    "favicon": {
+      "type": "string"
     }
   }
 }
