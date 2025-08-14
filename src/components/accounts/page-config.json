@@ -13,6 +13,12 @@
     },
     "primaryButtonText": {
       "type": "string"
+    },
+    "logoUrl": {
+      "type": "string"
+    },
+    "logoAltText": {
+      "type": "string"
     }
   }
 }
