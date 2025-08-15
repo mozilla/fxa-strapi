@@ -506,6 +506,13 @@ export interface ApiCommonContentCommonContent
           localized: true;
         };
       }>;
+    supportUrl: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     termsOfServiceDownloadUrl: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
