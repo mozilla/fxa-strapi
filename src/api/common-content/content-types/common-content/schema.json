@@ -125,6 +125,16 @@
       },
       "type": "string",
       "regex": "\\b(mozilla|snp|hubs|mdnplus)\\b"
+    },
+    "supportUrl": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "regex": "^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$",
+      "required": true
     }
   }
 }
