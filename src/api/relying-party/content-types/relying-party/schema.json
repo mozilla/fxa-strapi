@@ -75,6 +75,11 @@
       "type": "component",
       "component": "accounts.email-config",
       "repeatable": false
+    },
+    "l10nId": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

@@ -506,6 +506,13 @@ export interface ApiCommonContentCommonContent
           localized: true;
         };
       }>;
+    supportUrl: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     termsOfServiceDownloadUrl: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -873,6 +880,9 @@ export interface ApiRelyingPartyRelyingParty
       Schema.Attribute.Private;
     EmailFirstPage: Schema.Attribute.Component<'accounts.page-config', false>;
     entrypoint: Schema.Attribute.String;
+    l10nId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
