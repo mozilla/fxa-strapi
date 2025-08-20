@@ -49,6 +49,8 @@ export interface AccountsShared extends Struct.ComponentSchema {
     emailFromName: Schema.Attribute.String;
     emailLogoAltText: Schema.Attribute.String;
     emailLogoUrl: Schema.Attribute.String;
+    emailLogoWidth: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'280px'>;
     favicon: Schema.Attribute.String;
     featureFlags: Schema.Attribute.Component<'accounts.feature-flags', false>;
     headerLogoAltText: Schema.Attribute.String;
