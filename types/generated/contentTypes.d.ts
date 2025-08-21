@@ -878,7 +878,8 @@ export interface ApiRelyingPartyRelyingParty
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    EmailFirstPage: Schema.Attribute.Component<'accounts.page-config', false>;
+    EmailFirstPage: Schema.Attribute.Component<'accounts.page-config', false> &
+      Schema.Attribute.Required;
     entrypoint: Schema.Attribute.String;
     l10nId: Schema.Attribute.String &
       Schema.Attribute.Required &
@@ -895,8 +896,10 @@ export interface ApiRelyingPartyRelyingParty
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
-    shared: Schema.Attribute.Component<'accounts.shared', false>;
-    SigninPage: Schema.Attribute.Component<'accounts.page-config', false>;
+    shared: Schema.Attribute.Component<'accounts.shared', false> &
+      Schema.Attribute.Required;
+    SigninPage: Schema.Attribute.Component<'accounts.page-config', false> &
+      Schema.Attribute.Required;
     SigninTokenCodePage: Schema.Attribute.Component<
       'accounts.page-config',
       false
@@ -908,7 +911,8 @@ export interface ApiRelyingPartyRelyingParty
     SignupConfirmCodePage: Schema.Attribute.Component<
       'accounts.page-config',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     SignupConfirmedSyncPage: Schema.Attribute.Component<
       'accounts.page-config',
       false
@@ -916,7 +920,8 @@ export interface ApiRelyingPartyRelyingParty
     SignupSetPasswordPage: Schema.Attribute.Component<
       'accounts.page-config',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

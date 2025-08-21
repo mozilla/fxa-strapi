@@ -6,13 +6,15 @@
   "options": {},
   "attributes": {
     "headline": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
       "type": "text"
     },
     "primaryButtonText": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "logoUrl": {
       "type": "string"

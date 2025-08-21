@@ -30,11 +30,11 @@ export interface AccountsPageConfig extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    headline: Schema.Attribute.String;
+    headline: Schema.Attribute.String & Schema.Attribute.Required;
     logoAltText: Schema.Attribute.String;
     logoUrl: Schema.Attribute.String;
     pageTitle: Schema.Attribute.String;
-    primaryButtonText: Schema.Attribute.String;
+    primaryButtonText: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
