@@ -33,6 +33,7 @@ export interface AccountsPageConfig extends Struct.ComponentSchema {
     headline: Schema.Attribute.String;
     logoAltText: Schema.Attribute.String;
     logoUrl: Schema.Attribute.String;
+    pageTitle: Schema.Attribute.String;
     primaryButtonText: Schema.Attribute.String;
   };
 }
