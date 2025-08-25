@@ -32,6 +32,9 @@
     "backgroundColor": {
       "type": "string"
     },
+    "headerBackground": {
+      "type": "string"
+    },
     "pageTitle": {
       "type": "string"
     },
