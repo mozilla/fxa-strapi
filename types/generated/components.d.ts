@@ -33,6 +33,7 @@ export interface AccountsPageConfig extends Struct.ComponentSchema {
     headline: Schema.Attribute.String;
     logoAltText: Schema.Attribute.String;
     logoUrl: Schema.Attribute.String;
+    pageTitle: Schema.Attribute.String;
     primaryButtonText: Schema.Attribute.String;
   };
 }
@@ -49,8 +50,11 @@ export interface AccountsShared extends Struct.ComponentSchema {
     emailFromName: Schema.Attribute.String;
     emailLogoAltText: Schema.Attribute.String;
     emailLogoUrl: Schema.Attribute.String;
+    emailLogoWidth: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'280px'>;
     favicon: Schema.Attribute.String;
     featureFlags: Schema.Attribute.Component<'accounts.feature-flags', false>;
+    headerBackground: Schema.Attribute.String;
     headerLogoAltText: Schema.Attribute.String;
     headerLogoUrl: Schema.Attribute.String;
     logoAltText: Schema.Attribute.String;
