@@ -24,22 +24,26 @@
     "shared": {
       "type": "component",
       "component": "accounts.shared",
-      "repeatable": false
+      "repeatable": false,
+      "required": true
     },
     "EmailFirstPage": {
       "type": "component",
       "component": "accounts.page-config",
-      "repeatable": false
+      "repeatable": false,
+      "required": true
     },
     "SignupSetPasswordPage": {
       "type": "component",
       "component": "accounts.page-config",
-      "repeatable": false
+      "repeatable": false,
+      "required": true
     },
     "SignupConfirmCodePage": {
       "type": "component",
       "component": "accounts.page-config",
-      "repeatable": false
+      "repeatable": false,
+      "required": true
     },
     "SignupConfirmedSyncPage": {
       "type": "component",
@@ -49,7 +53,8 @@
     "SigninPage": {
       "type": "component",
       "component": "accounts.page-config",
-      "repeatable": false
+      "repeatable": false,
+      "required": true
     },
     "SigninTokenCodePage": {
       "type": "component",
