@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_accounts_images",
+  "info": {
+    "displayName": "Image"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "altText": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
