@@ -47,6 +47,7 @@ export interface AccountsPageConfig extends Struct.ComponentSchema {
     pageTitle: Schema.Attribute.String;
     primaryButtonText: Schema.Attribute.String & Schema.Attribute.Required;
     primaryImage: Schema.Attribute.Component<'accounts.image', false>;
+    splitLayout: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 
@@ -57,7 +58,10 @@ export interface AccountsShared extends Struct.ComponentSchema {
     displayName: 'Shared';
   };
   attributes: {
-    backgroundColor: Schema.Attribute.String;
+    backgrounds: Schema.Attribute.Component<
+      'accounts.shared-backgrounds',
+      false
+    >;
     buttonColor: Schema.Attribute.String;
     emailFromName: Schema.Attribute.String;
     emailLogoAltText: Schema.Attribute.String;
@@ -66,12 +70,24 @@ export interface AccountsShared extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'280px'>;
     favicon: Schema.Attribute.String;
     featureFlags: Schema.Attribute.Component<'accounts.feature-flags', false>;
-    headerBackground: Schema.Attribute.String;
     headerLogoAltText: Schema.Attribute.String;
     headerLogoUrl: Schema.Attribute.String;
     logoAltText: Schema.Attribute.String;
     logoUrl: Schema.Attribute.String;
     pageTitle: Schema.Attribute.String;
+  };
+}
+
+export interface AccountsSharedBackgrounds extends Struct.ComponentSchema {
+  collectionName: 'components_accounts_shared_backgrounds';
+  info: {
+    displayName: 'All Background-Related Settings';
+  };
+  attributes: {
+    defaultLayout: Schema.Attribute.String;
+    header: Schema.Attribute.String;
+    splitLayout: Schema.Attribute.String;
+    splitLayoutAltText: Schema.Attribute.String;
   };
 }
 
@@ -182,6 +198,7 @@ declare module '@strapi/strapi' {
       'accounts.image': AccountsImage;
       'accounts.page-config': AccountsPageConfig;
       'accounts.shared': AccountsShared;
+      'accounts.shared-backgrounds': AccountsSharedBackgrounds;
       'iap.apple-product-i-ds': IapAppleProductIDs;
       'iap.google-sk-us': IapGoogleSkUs;
       'iap.stripe-legacy-iap-prices': IapStripeLegacyIapPrices;

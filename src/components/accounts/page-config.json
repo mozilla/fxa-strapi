@@ -29,6 +29,10 @@
       "type": "component",
       "component": "accounts.image",
       "repeatable": false
+    },
+    "splitLayout": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
