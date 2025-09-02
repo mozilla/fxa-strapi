@@ -24,6 +24,11 @@
     },
     "pageTitle": {
       "type": "string"
+    },
+    "primaryImage": {
+      "type": "component",
+      "component": "accounts.image",
+      "repeatable": false
     }
   }
 }

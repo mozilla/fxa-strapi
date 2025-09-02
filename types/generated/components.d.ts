@@ -23,6 +23,17 @@ export interface AccountsFeatureFlags extends Struct.ComponentSchema {
   };
 }
 
+export interface AccountsImage extends Struct.ComponentSchema {
+  collectionName: 'components_accounts_images';
+  info: {
+    displayName: 'Image';
+  };
+  attributes: {
+    altText: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface AccountsPageConfig extends Struct.ComponentSchema {
   collectionName: 'components_accounts_page_configs';
   info: {
@@ -35,6 +46,7 @@ export interface AccountsPageConfig extends Struct.ComponentSchema {
     logoUrl: Schema.Attribute.String;
     pageTitle: Schema.Attribute.String;
     primaryButtonText: Schema.Attribute.String & Schema.Attribute.Required;
+    primaryImage: Schema.Attribute.Component<'accounts.image', false>;
   };
 }
 
@@ -167,6 +179,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'accounts.email-config': AccountsEmailConfig;
       'accounts.feature-flags': AccountsFeatureFlags;
+      'accounts.image': AccountsImage;
       'accounts.page-config': AccountsPageConfig;
       'accounts.shared': AccountsShared;
       'iap.apple-product-i-ds': IapAppleProductIDs;
