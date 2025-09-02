@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_accounts_shared_backgrounds",
+  "info": {
+    "displayName": "All Background-Related Settings"
+  },
+  "options": {},
+  "attributes": {
+    "defaultLayout": {
+      "type": "string",
+      "regex": "^(?:\\s*(?:#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})|rgb(?:a)?\\([^)]*\\)|hsl(?:a)?\\([^)]*\\)|(?:linear|radial|conic)-gradient\\([^)]*\\)|url\\(['\"]?.+?['\"]?\\)(?:\\s+[^,]*)??)\\s*)(?:,\\s*(?:#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})|rgb(?:a)?\\([^)]*\\)|hsl(?:a)?\\([^)]*\\)|(?:linear|radial|conic)-gradient\\([^)]*\\)|url\\(['\"]?.+?['\"]?\\)(?:\\s+[^,]*)??)\\s*)*$"
+    },
+    "header": {
+      "type": "string"
+    },
+    "splitLayout": {
+      "type": "string",
+      "regex": "^(?:\\s*(?:#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})|rgb(?:a)?\\([^)]*\\)|hsl(?:a)?\\([^)]*\\)|(?:linear|radial|conic)-gradient\\([^)]*\\)|url\\(['\"]?.+?['\"]?\\)(?:\\s+[^,]*)??)\\s*)(?:,\\s*(?:#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})|rgb(?:a)?\\([^)]*\\)|hsl(?:a)?\\([^)]*\\)|(?:linear|radial|conic)-gradient\\([^)]*\\)|url\\(['\"]?.+?['\"]?\\)(?:\\s+[^,]*)??)\\s*)*$"
+    },
+    "splitLayoutAltText": {
+      "type": "string"
+    }
+  }
+}
