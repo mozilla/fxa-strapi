@@ -21,10 +21,18 @@
     "emailLogoUrl": {
       "type": "string"
     },
+    "emailLogoWidth": {
+      "type": "string",
+      "default": "280px",
+      "regex": "^[0-9]+px$"
+    },
     "emailLogoAltText": {
       "type": "string"
     },
     "backgroundColor": {
+      "type": "string"
+    },
+    "headerBackground": {
       "type": "string"
     },
     "pageTitle": {

@@ -19,6 +19,9 @@
     },
     "logoAltText": {
       "type": "string"
+    },
+    "pageTitle": {
+      "type": "string"
     }
   }
 }
