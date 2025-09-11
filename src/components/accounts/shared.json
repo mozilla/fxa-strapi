@@ -29,11 +29,10 @@
     "emailLogoAltText": {
       "type": "string"
     },
-    "backgroundColor": {
-      "type": "string"
-    },
-    "headerBackground": {
-      "type": "string"
+    "backgrounds": {
+      "type": "component",
+      "component": "accounts.shared-backgrounds",
+      "repeatable": false
     },
     "pageTitle": {
       "type": "string"
