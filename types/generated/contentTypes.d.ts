@@ -482,7 +482,7 @@ export interface ApiCommonContentCommonContent
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     privacyNoticeUrl: Schema.Attribute.String &
