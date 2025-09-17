@@ -6,13 +6,15 @@
   "options": {},
   "attributes": {
     "headline": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
       "type": "text"
     },
     "primaryButtonText": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "logoUrl": {
       "type": "string"
@@ -22,6 +24,15 @@
     },
     "pageTitle": {
       "type": "string"
+    },
+    "primaryImage": {
+      "type": "component",
+      "component": "accounts.image",
+      "repeatable": false
+    },
+    "splitLayout": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
