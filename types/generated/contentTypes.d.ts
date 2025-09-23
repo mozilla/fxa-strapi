@@ -881,9 +881,7 @@ export interface ApiRelyingPartyRelyingParty
     EmailFirstPage: Schema.Attribute.Component<'accounts.page-config', false> &
       Schema.Attribute.Required;
     entrypoint: Schema.Attribute.String;
-    l10nId: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+    l10nId: Schema.Attribute.String & Schema.Attribute.Unique;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
