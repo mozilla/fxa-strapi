@@ -83,8 +83,9 @@
     },
     "l10nId": {
       "type": "string",
-      "required": true,
-      "unique": true
+      "required": false,
+      "unique": true,
+      "regex": "^[a-zA-Z]"
     }
   }
 }
