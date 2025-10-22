@@ -120,6 +120,12 @@
       "relation": "manyToMany",
       "target": "api::churn-intervention.churn-intervention",
       "mappedBy": "offerings"
+    },
+    "upgrade_interstitial_offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::upgrade-interstitial-offer.upgrade-interstitial-offer",
+      "mappedBy": "offering"
     }
   }
 }

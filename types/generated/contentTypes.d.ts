@@ -959,6 +959,10 @@ export interface ApiOfferingOffering extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    upgrade_interstitial_offers: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::upgrade-interstitial-offer.upgrade-interstitial-offer'
+    >;
   };
 }
 
@@ -1214,6 +1218,128 @@ export interface ApiSubgroupSubgroup extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUpgradeInterstitialOfferUpgradeInterstitialOffer
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'upgrade_interstitial_offers';
+  info: {
+    displayName: 'Upgrade Interstitial Offer';
+    pluralName: 'upgrade-interstitial-offers';
+    singularName: 'upgrade-interstitial-offer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    advertisedSavings: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaMessage: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    currentInterval: Schema.Attribute.Enumeration<
+      ['daily', 'weekly', 'monthly', 'halfyearly', 'yearly']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    internalName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::upgrade-interstitial-offer.upgrade-interstitial-offer'
+    >;
+    modalHeading1: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    modalHeading2: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    modalMessage: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    offering: Schema.Attribute.Relation<'manyToOne', 'api::offering.offering'>;
+    offeringApiIdentifier: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    productPageUrl: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    upgradeButtonLabel: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    upgradeButtonUrl: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    upgradeInterval: Schema.Attribute.Enumeration<
+      ['daily', 'weekly', 'monthly', 'halfyearly', 'yearly']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
   };
 }
 
@@ -1738,6 +1864,7 @@ declare module '@strapi/strapi' {
       'api::relying-party.relying-party': ApiRelyingPartyRelyingParty;
       'api::service.service': ApiServiceService;
       'api::subgroup.subgroup': ApiSubgroupSubgroup;
+      'api::upgrade-interstitial-offer.upgrade-interstitial-offer': ApiUpgradeInterstitialOfferUpgradeInterstitialOffer;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
