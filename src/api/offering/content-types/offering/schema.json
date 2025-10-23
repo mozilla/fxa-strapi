@@ -114,6 +114,12 @@
       "relation": "oneToMany",
       "target": "api::iap.iap",
       "mappedBy": "offering"
+    },
+    "churnInterventions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::churn-intervention.churn-intervention",
+      "mappedBy": "offerings"
     }
   }
 }
