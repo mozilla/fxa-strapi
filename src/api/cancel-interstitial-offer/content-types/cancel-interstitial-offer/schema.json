@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "upgrade_interstitial_offers",
+  "collectionName": "cancel_interstitial_offers",
   "info": {
-    "singularName": "upgrade-interstitial-offer",
-    "pluralName": "upgrade-interstitial-offers",
-    "displayName": "Upgrade Interstitial Offer"
+    "singularName": "cancel-interstitial-offer",
+    "pluralName": "cancel-interstitial-offers",
+    "displayName": "Cancel Interstitial Offer"
   },
   "options": {
     "draftAndPublish": true
@@ -144,7 +144,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::offering.offering",
-      "inversedBy": "upgrade_interstitial_offers"
+      "inversedBy": "cancel_interstitial_offers"
     }
   }
 }

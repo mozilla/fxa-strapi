@@ -121,10 +121,10 @@
       "target": "api::churn-intervention.churn-intervention",
       "mappedBy": "offerings"
     },
-    "upgrade_interstitial_offers": {
+    "cancel_interstitial_offers": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::upgrade-interstitial-offer.upgrade-interstitial-offer",
+      "target": "api::cancel-interstitial-offer.cancel-interstitial-offer",
       "mappedBy": "offering"
     }
   }
