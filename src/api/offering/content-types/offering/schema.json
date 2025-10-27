@@ -114,6 +114,18 @@
       "relation": "oneToMany",
       "target": "api::iap.iap",
       "mappedBy": "offering"
+    },
+    "churnInterventions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::churn-intervention.churn-intervention",
+      "mappedBy": "offerings"
+    },
+    "cancel_interstitial_offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cancel-interstitial-offer.cancel-interstitial-offer",
+      "mappedBy": "offering"
     }
   }
 }
