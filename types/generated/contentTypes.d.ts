@@ -432,7 +432,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 
 export interface ApiCancelInterstitialOfferCancelInterstitialOffer
   extends Struct.CollectionTypeSchema {
-  collectionName: 'cancel';
+  collectionName: 'cancel_interstitial_offers';
   info: {
     displayName: 'Cancel Interstitial Offer';
     pluralName: 'cancel-interstitial-offers';
@@ -509,7 +509,6 @@ export interface ApiCancelInterstitialOfferCancelInterstitialOffer
     offering: Schema.Attribute.Relation<'manyToOne', 'api::offering.offering'>;
     offeringApiIdentifier: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
