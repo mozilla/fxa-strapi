@@ -969,6 +969,42 @@ export interface ApiIapIap extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiLegalNoticeLegalNotice extends Struct.CollectionTypeSchema {
+  collectionName: 'legal_notices';
+  info: {
+    displayName: 'Legal Notice';
+    pluralName: 'legal-notices';
+    singularName: 'legal-notice';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    l10nId: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::legal-notice.legal-notice'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    serviceOrClientId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    Terms: Schema.Attribute.Component<
+      'accounts.tos-and-privacy-notice-details',
+      false
+    > &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOfferingOffering extends Struct.CollectionTypeSchema {
   collectionName: 'offerings';
   info: {
@@ -1858,6 +1894,7 @@ declare module '@strapi/strapi' {
       'api::common-content.common-content': ApiCommonContentCommonContent;
       'api::coupon-config.coupon-config': ApiCouponConfigCouponConfig;
       'api::iap.iap': ApiIapIap;
+      'api::legal-notice.legal-notice': ApiLegalNoticeLegalNotice;
       'api::offering.offering': ApiOfferingOffering;
       'api::purchase-detail.purchase-detail': ApiPurchaseDetailPurchaseDetail;
       'api::purchase.purchase': ApiPurchasePurchase;
