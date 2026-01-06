@@ -91,6 +91,26 @@ export interface AccountsSharedBackgrounds extends Struct.ComponentSchema {
   };
 }
 
+export interface AccountsTosAndPrivacyNoticeDetails
+  extends Struct.ComponentSchema {
+  collectionName: 'components_accounts_tos_and_privacy_notice_details';
+  info: {
+    displayName: 'Tos and Privacy Notice Details';
+    icon: 'link';
+  };
+  attributes: {
+    fontSize: Schema.Attribute.Enumeration<['default', 'medium', 'large']> &
+      Schema.Attribute.DefaultTo<'default'>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    privacyNoticeLink: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'https://accounts.firefox.com/legal/privacy'>;
+    termsOfServiceLink: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'https://accounts.firefox.com/legal/terms'>;
+  };
+}
+
 export interface IapAppleProductIDs extends Struct.ComponentSchema {
   collectionName: 'components_iap_apple_product_i_ds';
   info: {
@@ -199,6 +219,7 @@ declare module '@strapi/strapi' {
       'accounts.page-config': AccountsPageConfig;
       'accounts.shared': AccountsShared;
       'accounts.shared-backgrounds': AccountsSharedBackgrounds;
+      'accounts.tos-and-privacy-notice-details': AccountsTosAndPrivacyNoticeDetails;
       'iap.apple-product-i-ds': IapAppleProductIDs;
       'iap.google-sk-us': IapGoogleSkUs;
       'iap.stripe-legacy-iap-prices': IapStripeLegacyIapPrices;
