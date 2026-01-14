@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "legal_notices",
+  "info": {
+    "singularName": "legal-notice",
+    "pluralName": "legal-notices",
+    "displayName": "Legal Notice"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "serviceOrClientId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Terms": {
+      "type": "component",
+      "component": "accounts.tos-and-privacy-notice-details",
+      "repeatable": false,
+      "required": true
+    },
+    "l10nId": {
+      "type": "string",
+      "required": false,
+      "unique": false
+    }
+  }
+}
