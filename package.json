@@ -14,7 +14,7 @@
     "@strapi/plugin-graphql": "^5.33.2",
     "@strapi/plugin-users-permissions": "5.33.2",
     "@strapi/strapi": "5.33.2",
-    "better-sqlite3": "12.5.0",
+    "better-sqlite3": "12.6.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.30.3",
