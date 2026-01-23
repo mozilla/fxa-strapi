@@ -43,6 +43,18 @@
     "headerLogoAltText": {
       "type": "string"
     },
+    "headlineFontSize": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "medium",
+        "large"
+      ]
+    },
+    "headlineTextColor": {
+      "type": "string"
+    },
     "featureFlags": {
       "type": "component",
       "component": "accounts.feature-flags",
