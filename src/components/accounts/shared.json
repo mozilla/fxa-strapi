@@ -50,6 +50,9 @@
     },
     "favicon": {
       "type": "string"
+    },
+    "additionalAccessibilityInfo": {
+      "type": "string"
     }
   }
 }

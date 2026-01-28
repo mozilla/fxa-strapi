@@ -58,6 +58,7 @@ export interface AccountsShared extends Struct.ComponentSchema {
     displayName: 'Shared';
   };
   attributes: {
+    additionalAccessibilityInfo: Schema.Attribute.String;
     backgrounds: Schema.Attribute.Component<
       'accounts.shared-backgrounds',
       false
