@@ -58,6 +58,7 @@ export interface AccountsShared extends Struct.ComponentSchema {
     displayName: 'Shared';
   };
   attributes: {
+    additionalAccessibilityInfo: Schema.Attribute.String;
     backgrounds: Schema.Attribute.Component<
       'accounts.shared-backgrounds',
       false
@@ -72,6 +73,11 @@ export interface AccountsShared extends Struct.ComponentSchema {
     featureFlags: Schema.Attribute.Component<'accounts.feature-flags', false>;
     headerLogoAltText: Schema.Attribute.String;
     headerLogoUrl: Schema.Attribute.String;
+    headlineFontSize: Schema.Attribute.Enumeration<
+      ['default', 'medium', 'large']
+    > &
+      Schema.Attribute.DefaultTo<'default'>;
+    headlineTextColor: Schema.Attribute.String;
     logoAltText: Schema.Attribute.String;
     logoUrl: Schema.Attribute.String;
     pageTitle: Schema.Attribute.String;
