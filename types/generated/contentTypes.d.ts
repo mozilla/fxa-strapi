@@ -447,23 +447,9 @@ export interface ApiCancelInterstitialOfferCancelInterstitialOffer
     };
   };
   attributes: {
-    advertisedSavings: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    ctaMessage: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     currentInterval: Schema.Attribute.Enumeration<
       ['daily', 'weekly', 'monthly', 'halfyearly', 'yearly']
     > &
@@ -488,12 +474,6 @@ export interface ApiCancelInterstitialOfferCancelInterstitialOffer
     >;
     modalHeading1: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    modalHeading2: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -641,7 +621,7 @@ export interface ApiChurnInterventionChurnIntervention
       Schema.Attribute.SetMinMax<
         {
           max: 100;
-          min: 0;
+          min: 1;
         },
         number
       >;
