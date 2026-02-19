@@ -66,24 +66,6 @@
       ],
       "required": true
     },
-    "advertisedSavings": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "integer",
-      "required": true
-    },
-    "ctaMessage": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
     "modalHeading1": {
       "pluginOptions": {
         "i18n": {
@@ -92,14 +74,6 @@
       },
       "type": "string",
       "required": true
-    },
-    "modalHeading2": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
     },
     "modalMessage": {
       "pluginOptions": {
