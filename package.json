@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.35.0",
-    "@strapi/plugin-graphql": "^5.35.0",
+    "@strapi/plugin-graphql": "^5.36.1",
     "@strapi/plugin-users-permissions": "5.35.0",
     "@strapi/strapi": "5.36.1",
     "better-sqlite3": "12.6.2",
