@@ -1246,6 +1246,7 @@ export interface ApiRelyingPartyRelyingParty
     publishedAt: Schema.Attribute.DateTime;
     shared: Schema.Attribute.Component<'accounts.shared', false> &
       Schema.Attribute.Required;
+    SigninCachedPage: Schema.Attribute.Component<'accounts.page-config', false>;
     SigninPage: Schema.Attribute.Component<'accounts.page-config', false> &
       Schema.Attribute.Required;
     SigninTokenCodePage: Schema.Attribute.Component<

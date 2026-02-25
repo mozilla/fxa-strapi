@@ -56,6 +56,11 @@
       "repeatable": false,
       "required": true
     },
+    "SigninCachedPage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
     "SigninTokenCodePage": {
       "type": "component",
       "component": "accounts.page-config",
