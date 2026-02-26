@@ -915,6 +915,112 @@ export interface ApiCouponConfigCouponConfig
   };
 }
 
+export interface ApiFreeTrialFreeTrial extends Struct.CollectionTypeSchema {
+  collectionName: 'free_trials';
+  info: {
+    displayName: 'Free Trial';
+    pluralName: 'free-trials';
+    singularName: 'free-trial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cooldownPeriodMonths: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    countries: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'AT - Austria',
+          'BE - Belgium',
+          'BG - Bulgaria',
+          'CA - Canada',
+          'HR - Croatia',
+          'CY - Cyprus',
+          'CZ - Czech Republic',
+          'DK - Denmark',
+          'EE - Estonia',
+          'FI - Finland',
+          'FR - France',
+          'DE - Germany',
+          'GR - Greece',
+          'HU - Hungary',
+          'IE - Ireland',
+          'IT - Italy',
+          'LV - Latvia',
+          'LT - Lithuania',
+          'LU - Luxembourg',
+          'MY - Malaysia',
+          'MT - Malta',
+          'NL - Netherlands',
+          'NZ - New Zealand',
+          'PL - Poland',
+          'PT - Portugal',
+          'RO - Romania',
+          'SG - Singapore',
+          'SK - Slovakia',
+          'SI - Slovenia',
+          'ES - Spain',
+          'SE - Sweden',
+          'CH - Switzerland',
+          'GB - United Kingdom',
+          'US - United States',
+        ]
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    internalName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    intervals: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['daily', 'weekly', 'monthly', 'halfyearly', 'yearly']
+      >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::free-trial.free-trial'
+    > &
+      Schema.Attribute.Private;
+    offerings: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::offering.offering'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    trialLengthDays: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiIapIap extends Struct.CollectionTypeSchema {
   collectionName: 'iaps';
   info: {
@@ -1076,6 +1182,10 @@ export interface ApiOfferingOffering extends Struct.CollectionTypeSchema {
     experimentPurchase: Schema.Attribute.Relation<
       'oneToOne',
       'api::purchase.purchase'
+    >;
+    free_trials: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::free-trial.free-trial'
     >;
     iaps: Schema.Attribute.Relation<'oneToMany', 'api::iap.iap'>;
     internalName: Schema.Attribute.String &
@@ -1874,6 +1984,7 @@ declare module '@strapi/strapi' {
       'api::churn-intervention.churn-intervention': ApiChurnInterventionChurnIntervention;
       'api::common-content.common-content': ApiCommonContentCommonContent;
       'api::coupon-config.coupon-config': ApiCouponConfigCouponConfig;
+      'api::free-trial.free-trial': ApiFreeTrialFreeTrial;
       'api::iap.iap': ApiIapIap;
       'api::legal-notice.legal-notice': ApiLegalNoticeLegalNotice;
       'api::offering.offering': ApiOfferingOffering;
