@@ -71,6 +71,26 @@
       "component": "accounts.page-config",
       "repeatable": false
     },
+    "SigninTotpCodePage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "SigninRecoveryChoicePage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "SigninRecoveryCodePage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "SigninRecoveryPhonePage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
     "NewDeviceLoginEmail": {
       "type": "component",
       "component": "accounts.email-config",
