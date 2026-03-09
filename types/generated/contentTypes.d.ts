@@ -1353,12 +1353,24 @@ export interface ApiRelyingPartyRelyingParty
       'accounts.email-config',
       false
     >;
+    PasswordlessSigninOtpEmail: Schema.Attribute.Component<
+      'accounts.email-config',
+      false
+    >;
+    PasswordlessSignupOtpEmail: Schema.Attribute.Component<
+      'accounts.email-config',
+      false
+    >;
     publishedAt: Schema.Attribute.DateTime;
     shared: Schema.Attribute.Component<'accounts.shared', false> &
       Schema.Attribute.Required;
     SigninCachedPage: Schema.Attribute.Component<'accounts.page-config', false>;
     SigninPage: Schema.Attribute.Component<'accounts.page-config', false> &
       Schema.Attribute.Required;
+    SigninPasswordlessCodePage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
     SigninTokenCodePage: Schema.Attribute.Component<
       'accounts.page-config',
       false
@@ -1373,6 +1385,10 @@ export interface ApiRelyingPartyRelyingParty
     > &
       Schema.Attribute.Required;
     SignupConfirmedSyncPage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
+    SignupPasswordlessCodePage: Schema.Attribute.Component<
       'accounts.page-config',
       false
     >;
@@ -1732,6 +1748,7 @@ export interface PluginUploadFile extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     ext: Schema.Attribute.String;
+    focalPoint: Schema.Attribute.JSON;
     folder: Schema.Attribute.Relation<'manyToOne', 'plugin::upload.folder'> &
       Schema.Attribute.Private;
     folderPath: Schema.Attribute.String &
