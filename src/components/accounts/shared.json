@@ -34,6 +34,11 @@
       "component": "accounts.shared-backgrounds",
       "repeatable": false
     },
+    "illustrationsTheme": {
+      "type": "component",
+      "component": "accounts.illustrations-theme",
+      "repeatable": false
+    },
     "pageTitle": {
       "type": "string"
     },

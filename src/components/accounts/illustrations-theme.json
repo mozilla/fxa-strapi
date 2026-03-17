@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_accounts_illustrations_themes",
+  "info": {
+    "displayName": "Illustrations Theme"
+  },
+  "options": {},
+  "attributes": {
+    "primary": {
+      "type": "string",
+      "regex": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+    },
+    "primaryAlt": {
+      "type": "string",
+      "regex": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+    },
+    "secondary": {
+      "type": "string",
+      "regex": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+    },
+    "accentBg": {
+      "type": "string",
+      "regex": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+    },
+    "accentFg": {
+      "type": "string",
+      "regex": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+    },
+    "cloudPrimary": {
+      "type": "string",
+      "regex": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+    },
+    "cloudShadow": {
+      "type": "string",
+      "regex": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+    },
+    "hideClouds": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
