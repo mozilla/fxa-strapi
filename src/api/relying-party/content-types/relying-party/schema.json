@@ -50,6 +50,11 @@
       "component": "accounts.page-config",
       "repeatable": false
     },
+    "SignupPasswordlessCodePage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
     "SigninPage": {
       "type": "component",
       "component": "accounts.page-config",
@@ -57,6 +62,11 @@
       "required": true
     },
     "SigninCachedPage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "SigninPasswordlessCodePage": {
       "type": "component",
       "component": "accounts.page-config",
       "repeatable": false
@@ -71,7 +81,37 @@
       "component": "accounts.page-config",
       "repeatable": false
     },
+    "SigninTotpCodePage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "SigninRecoveryChoicePage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "SigninRecoveryCodePage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
+    "SigninRecoveryPhonePage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
     "NewDeviceLoginEmail": {
+      "type": "component",
+      "component": "accounts.email-config",
+      "repeatable": false
+    },
+    "PasswordlessSigninOtpEmail": {
+      "type": "component",
+      "component": "accounts.email-config",
+      "repeatable": false
+    },
+    "PasswordlessSignupOtpEmail": {
       "type": "component",
       "component": "accounts.email-config",
       "repeatable": false

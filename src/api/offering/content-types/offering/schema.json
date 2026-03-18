@@ -126,6 +126,12 @@
       "relation": "oneToMany",
       "target": "api::cancel-interstitial-offer.cancel-interstitial-offer",
       "mappedBy": "offering"
+    },
+    "free_trials": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::free-trial.free-trial",
+      "mappedBy": "offerings"
     }
   }
 }
