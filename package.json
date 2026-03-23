@@ -19,7 +19,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.30.3",
     "strapi-plugin-multi-select": "git://github.com/julianpoy/strapi-plugin-multi-select.git",
-    "styled-components": "^6.3.11"
+    "styled-components": "^6.3.12"
   },
   "author": {
     "name": "A Strapi developer"
