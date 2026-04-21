@@ -23,6 +23,23 @@ export interface AccountsFeatureFlags extends Struct.ComponentSchema {
   };
 }
 
+export interface AccountsIllustrationsTheme extends Struct.ComponentSchema {
+  collectionName: 'components_accounts_illustrations_themes';
+  info: {
+    displayName: 'Illustrations Theme';
+  };
+  attributes: {
+    accentBg: Schema.Attribute.String;
+    accentFg: Schema.Attribute.String;
+    cloudPrimary: Schema.Attribute.String;
+    cloudShadow: Schema.Attribute.String;
+    hideClouds: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    primary: Schema.Attribute.String;
+    primaryAlt: Schema.Attribute.String;
+    secondary: Schema.Attribute.String;
+  };
+}
+
 export interface AccountsImage extends Struct.ComponentSchema {
   collectionName: 'components_accounts_images';
   info: {
@@ -41,11 +58,11 @@ export interface AccountsPageConfig extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    headline: Schema.Attribute.String & Schema.Attribute.Required;
+    headline: Schema.Attribute.String;
     logoAltText: Schema.Attribute.String;
     logoUrl: Schema.Attribute.String;
     pageTitle: Schema.Attribute.String;
-    primaryButtonText: Schema.Attribute.String & Schema.Attribute.Required;
+    primaryButtonText: Schema.Attribute.String;
     primaryImage: Schema.Attribute.Component<'accounts.image', false>;
     splitLayout: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
@@ -78,6 +95,10 @@ export interface AccountsShared extends Struct.ComponentSchema {
     > &
       Schema.Attribute.DefaultTo<'default'>;
     headlineTextColor: Schema.Attribute.String;
+    illustrationsTheme: Schema.Attribute.Component<
+      'accounts.illustrations-theme',
+      false
+    >;
     logoAltText: Schema.Attribute.String;
     logoUrl: Schema.Attribute.String;
     pageTitle: Schema.Attribute.String;
@@ -221,6 +242,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'accounts.email-config': AccountsEmailConfig;
       'accounts.feature-flags': AccountsFeatureFlags;
+      'accounts.illustrations-theme': AccountsIllustrationsTheme;
       'accounts.image': AccountsImage;
       'accounts.page-config': AccountsPageConfig;
       'accounts.shared': AccountsShared;

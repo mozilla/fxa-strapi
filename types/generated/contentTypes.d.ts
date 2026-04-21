@@ -464,7 +464,7 @@ export interface ApiCancelInterstitialOfferCancelInterstitialOffer
       Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     locale: Schema.Attribute.String;
@@ -909,6 +909,53 @@ export interface ApiCouponConfigCouponConfig
       'stripe.stripe-promo-codes',
       true
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDefaultDefault extends Struct.SingleTypeSchema {
+  collectionName: 'defaults';
+  info: {
+    description: 'Global, non-RP-keyed content shown on web-integration pages. Add fields here for any override that should apply when there is no relying party clientId/entrypoint.';
+    displayName: 'FxA default (no RP)';
+    mainField: 'internalName';
+    pluralName: 'defaults';
+    singularName: 'default';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    internalName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'Default: only affects flows going to Settings'>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::default.default'
+    >;
+    promoQrImageUrl: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1361,6 +1408,10 @@ export interface ApiRelyingPartyRelyingParty
       'accounts.email-config',
       false
     >;
+    PostVerifySetPasswordPage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
     publishedAt: Schema.Attribute.DateTime;
     shared: Schema.Attribute.Component<'accounts.shared', false> &
       Schema.Attribute.Required;
@@ -1371,7 +1422,23 @@ export interface ApiRelyingPartyRelyingParty
       'accounts.page-config',
       false
     >;
+    SigninRecoveryChoicePage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
+    SigninRecoveryCodePage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
+    SigninRecoveryPhonePage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
     SigninTokenCodePage: Schema.Attribute.Component<
+      'accounts.page-config',
+      false
+    >;
+    SigninTotpCodePage: Schema.Attribute.Component<
       'accounts.page-config',
       false
     >;
@@ -1748,7 +1815,6 @@ export interface PluginUploadFile extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     ext: Schema.Attribute.String;
-    focalPoint: Schema.Attribute.JSON;
     folder: Schema.Attribute.Relation<'manyToOne', 'plugin::upload.folder'> &
       Schema.Attribute.Private;
     folderPath: Schema.Attribute.String &
@@ -2001,6 +2067,7 @@ declare module '@strapi/strapi' {
       'api::churn-intervention.churn-intervention': ApiChurnInterventionChurnIntervention;
       'api::common-content.common-content': ApiCommonContentCommonContent;
       'api::coupon-config.coupon-config': ApiCouponConfigCouponConfig;
+      'api::default.default': ApiDefaultDefault;
       'api::free-trial.free-trial': ApiFreeTrialFreeTrial;
       'api::iap.iap': ApiIapIap;
       'api::legal-notice.legal-notice': ApiLegalNoticeLegalNotice;
