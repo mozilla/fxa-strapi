@@ -101,6 +101,11 @@
       "component": "accounts.page-config",
       "repeatable": false
     },
+    "PostVerifySetPasswordPage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
     "NewDeviceLoginEmail": {
       "type": "component",
       "component": "accounts.email-config",
