@@ -10,16 +10,16 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "5.38.0",
-    "@strapi/plugin-graphql": "^5.38.0",
-    "@strapi/plugin-users-permissions": "5.38.0",
-    "@strapi/strapi": "5.38.0",
-    "better-sqlite3": "12.6.2",
+    "@strapi/plugin-cloud": "5.42.1",
+    "@strapi/plugin-graphql": "^5.42.1",
+    "@strapi/plugin-users-permissions": "5.42.1",
+    "@strapi/strapi": "5.42.1",
+    "better-sqlite3": "12.9.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.30.3",
     "strapi-plugin-multi-select": "git://github.com/julianpoy/strapi-plugin-multi-select.git",
-    "styled-components": "^6.3.11"
+    "styled-components": "^6.4.0"
   },
   "author": {
     "name": "A Strapi developer"
