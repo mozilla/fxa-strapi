@@ -66,6 +66,11 @@
       "component": "accounts.page-config",
       "repeatable": false
     },
+    "AuthorizePage": {
+      "type": "component",
+      "component": "accounts.page-config",
+      "repeatable": false
+    },
     "SigninPasswordlessCodePage": {
       "type": "component",
       "component": "accounts.page-config",
