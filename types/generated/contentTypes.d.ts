@@ -440,6 +440,54 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAccessAccess extends Struct.CollectionTypeSchema {
+  collectionName: 'accesses';
+  info: {
+    description: 'Grants offerings to users matched by one or more matchers (email, domain, ...).';
+    displayName: 'Access';
+    pluralName: 'accesses';
+    singularName: 'access';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    freeAccessProgram: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::free-access-program.free-access-program'
+    >;
+    internalName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::access.access'
+    > &
+      Schema.Attribute.Private;
+    matchers: Schema.Attribute.DynamicZone<['matchers.email-list']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    offerings: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::offering.offering'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCancelInterstitialOfferCancelInterstitialOffer
   extends Struct.CollectionTypeSchema {
   collectionName: 'cancel_interstitial_offers';
@@ -965,6 +1013,40 @@ export interface ApiDefaultDefault extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFreeAccessProgramFreeAccessProgram
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'free_access_programs';
+  info: {
+    description: '';
+    displayName: 'Free Access Program';
+    pluralName: 'free-access-programs';
+    singularName: 'free-access-program';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    accesses: Schema.Attribute.Relation<'oneToMany', 'api::access.access'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayName: Schema.Attribute.String & Schema.Attribute.Required;
+    internalName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::free-access-program.free-access-program'
+    > &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2107,12 +2189,14 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::access.access': ApiAccessAccess;
       'api::cancel-interstitial-offer.cancel-interstitial-offer': ApiCancelInterstitialOfferCancelInterstitialOffer;
       'api::capability.capability': ApiCapabilityCapability;
       'api::churn-intervention.churn-intervention': ApiChurnInterventionChurnIntervention;
       'api::common-content.common-content': ApiCommonContentCommonContent;
       'api::coupon-config.coupon-config': ApiCouponConfigCouponConfig;
       'api::default.default': ApiDefaultDefault;
+      'api::free-access-program.free-access-program': ApiFreeAccessProgramFreeAccessProgram;
       'api::free-trial.free-trial': ApiFreeTrialFreeTrial;
       'api::iap.iap': ApiIapIap;
       'api::legal-notice.legal-notice': ApiLegalNoticeLegalNotice;
