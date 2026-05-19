@@ -10,10 +10,10 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "5.42.1",
-    "@strapi/plugin-graphql": "^5.42.1",
-    "@strapi/plugin-users-permissions": "5.42.1",
-    "@strapi/strapi": "5.42.1",
+    "@strapi/plugin-cloud": "5.45.1",
+    "@strapi/plugin-graphql": "^5.45.1",
+    "@strapi/plugin-users-permissions": "5.45.1",
+    "@strapi/strapi": "5.45.1",
     "better-sqlite3": "12.9.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
