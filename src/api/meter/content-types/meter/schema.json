@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "meters",
+  "info": {
+    "singularName": "meter",
+    "pluralName": "meters",
+    "displayName": "Meter"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "regex": "^[a-z0-9]+([_-][a-z0-9]+)*$"
+    },
+    "unit": {
+      "type": "string",
+      "required": true
+    },
+    "limit": {
+      "type": "integer",
+      "required": true
+    },
+    "window": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "daily",
+        "weekly",
+        "monthly"
+      ]
+    },
+    "notificationThresholds": {
+      "type": "text",
+      "required": true
+    },
+    "webhooks": {
+      "type": "component",
+      "component": "entitlements.webhooks",
+      "repeatable": true,
+      "required": true
+    }
+  }
+}
