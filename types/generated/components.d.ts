@@ -138,6 +138,17 @@ export interface AccountsTosAndPrivacyNoticeDetails
   };
 }
 
+export interface EntitlementsWebhooks extends Struct.ComponentSchema {
+  collectionName: 'components_entitlements_webhooks';
+  info: {
+    displayName: 'Webhooks';
+  };
+  attributes: {
+    signingClientId: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface IapAppleProductIDs extends Struct.ComponentSchema {
   collectionName: 'components_iap_apple_product_i_ds';
   info: {
@@ -248,6 +259,7 @@ declare module '@strapi/strapi' {
       'accounts.shared': AccountsShared;
       'accounts.shared-backgrounds': AccountsSharedBackgrounds;
       'accounts.tos-and-privacy-notice-details': AccountsTosAndPrivacyNoticeDetails;
+      'entitlements.webhooks': EntitlementsWebhooks;
       'iap.apple-product-i-ds': IapAppleProductIDs;
       'iap.google-sk-us': IapGoogleSkUs;
       'iap.stripe-legacy-iap-prices': IapStripeLegacyIapPrices;

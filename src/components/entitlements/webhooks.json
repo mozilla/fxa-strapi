@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_entitlements_webhooks",
+  "info": {
+    "displayName": "Webhooks"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "required": true,
+      "regex": "^https:\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$"
+    },
+    "signingClientId": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
