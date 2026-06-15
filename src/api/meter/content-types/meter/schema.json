@@ -22,7 +22,7 @@
       "required": true
     },
     "limit": {
-      "type": "integer",
+      "type": "biginteger",
       "required": true
     },
     "window": {
@@ -35,14 +35,12 @@
       ]
     },
     "notificationThresholds": {
-      "type": "text",
-      "required": true
+      "type": "text"
     },
     "webhooks": {
       "type": "component",
       "component": "entitlements.webhooks",
-      "repeatable": true,
-      "required": true
+      "repeatable": true
     }
   }
 }
