@@ -1162,11 +1162,11 @@ export interface ApiMeterMeter extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    limit: Schema.Attribute.Integer & Schema.Attribute.Required;
+    limit: Schema.Attribute.BigInteger & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::meter.meter'> &
       Schema.Attribute.Private;
-    notificationThresholds: Schema.Attribute.Text & Schema.Attribute.Required;
+    notificationThresholds: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
@@ -1175,8 +1175,7 @@ export interface ApiMeterMeter extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    webhooks: Schema.Attribute.Component<'entitlements.webhooks', true> &
-      Schema.Attribute.Required;
+    webhooks: Schema.Attribute.Component<'entitlements.webhooks', true>;
     window: Schema.Attribute.Enumeration<['daily', 'weekly', 'monthly']> &
       Schema.Attribute.Required;
   };
