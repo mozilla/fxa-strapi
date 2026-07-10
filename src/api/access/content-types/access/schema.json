@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accesses",
+  "info": {
+    "singularName": "access",
+    "pluralName": "accesses",
+    "displayName": "Access",
+    "description": "Grants offerings to users matched by one or more matchers (email, domain, ...)."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "internalName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "freeAccessProgram": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::free-access-program.free-access-program",
+      "inversedBy": "accesses"
+    },
+    "offerings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::offering.offering"
+    },
+    "matchers": {
+      "type": "dynamiczone",
+      "components": ["matchers.email-list"],
+      "required": true,
+      "min": 1
+    }
+  }
+}

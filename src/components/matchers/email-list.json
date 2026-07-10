@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_matchers_email_lists",
+  "info": {
+    "displayName": "Email List",
+    "icon": "envelopesBulk"
+  },
+  "options": {},
+  "attributes": {
+    "emails": {
+      "type": "json",
+      "required": true
+    }
+  }
+}
