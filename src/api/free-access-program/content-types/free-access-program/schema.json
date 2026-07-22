@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "free_access_programs",
+  "info": {
+    "singularName": "free-access-program",
+    "pluralName": "free-access-programs",
+    "displayName": "Free Access Program",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "internalName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "displayName": {
+      "type": "string",
+      "required": true
+    },
+    "accesses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::access.access",
+      "mappedBy": "freeAccessProgram"
+    }
+  }
+}

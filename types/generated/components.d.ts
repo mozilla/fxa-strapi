@@ -207,6 +207,17 @@ export interface IapStripePlanChoices extends Struct.ComponentSchema {
   };
 }
 
+export interface MatchersEmailList extends Struct.ComponentSchema {
+  collectionName: 'components_matchers_email_lists';
+  info: {
+    displayName: 'Email List';
+    icon: 'envelopesBulk';
+  };
+  attributes: {
+    emails: Schema.Attribute.JSON & Schema.Attribute.Required;
+  };
+}
+
 export interface StripeStripeLegacyPlans extends Struct.ComponentSchema {
   collectionName: 'components_stripe_stripe_legacy_plans';
   info: {
@@ -264,6 +275,7 @@ declare module '@strapi/strapi' {
       'iap.google-sk-us': IapGoogleSkUs;
       'iap.stripe-legacy-iap-prices': IapStripeLegacyIapPrices;
       'iap.stripe-plan-choices': IapStripePlanChoices;
+      'matchers.email-list': MatchersEmailList;
       'stripe.stripe-legacy-plans': StripeStripeLegacyPlans;
       'stripe.stripe-plan-choices': StripeStripePlanChoices;
       'stripe.stripe-promo-codes': StripeStripePromoCodes;
