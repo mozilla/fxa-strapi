@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_offerings_ranked_offerings",
+  "info": {
+    "displayName": "ranked offerings"
+  },
+  "options": {},
+  "attributes": {
+    "generatedLabel": {
+      "type": "string"
+    },
+    "position": {
+      "type": "integer",
+      "required": true
+    },
+    "offering": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::offering.offering",
+      "required": true
+    }
+  },
+  "config": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "generatedLabel",
+      "defaultSortBy": "documentId",
+      "defaultSortOrder": "ASC",
+      "relationOpenMode": "modal"
+    },
+    "layouts": {
+      "edit": [
+        [
+          {
+            "name": "position",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "offering",
+            "size": 6
+          }
+        ]
+      ]
+    }
+  }
+}

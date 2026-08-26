@@ -218,6 +218,19 @@ export interface MatchersEmailList extends Struct.ComponentSchema {
   };
 }
 
+export interface OfferingsRankedOfferings extends Struct.ComponentSchema {
+  collectionName: 'components_offerings_ranked_offerings';
+  info: {
+    displayName: 'ranked offerings';
+  };
+  attributes: {
+    generatedLabel: Schema.Attribute.String;
+    offering: Schema.Attribute.Relation<'oneToOne', 'api::offering.offering'> &
+      Schema.Attribute.Required;
+    position: Schema.Attribute.Integer & Schema.Attribute.Required;
+  };
+}
+
 export interface StripeStripeLegacyPlans extends Struct.ComponentSchema {
   collectionName: 'components_stripe_stripe_legacy_plans';
   info: {
@@ -260,7 +273,7 @@ export interface StripeStripePromoCodes extends Struct.ComponentSchema {
 }
 
 declare module '@strapi/strapi' {
-  export module Public {
+  export namespace Public {
     export interface ComponentSchemas {
       'accounts.email-config': AccountsEmailConfig;
       'accounts.feature-flags': AccountsFeatureFlags;
@@ -276,6 +289,7 @@ declare module '@strapi/strapi' {
       'iap.stripe-legacy-iap-prices': IapStripeLegacyIapPrices;
       'iap.stripe-plan-choices': IapStripePlanChoices;
       'matchers.email-list': MatchersEmailList;
+      'offerings.ranked-offerings': OfferingsRankedOfferings;
       'stripe.stripe-legacy-plans': StripeStripeLegacyPlans;
       'stripe.stripe-plan-choices': StripeStripePlanChoices;
       'stripe.stripe-promo-codes': StripeStripePromoCodes;
