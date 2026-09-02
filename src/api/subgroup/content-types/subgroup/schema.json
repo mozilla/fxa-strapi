@@ -25,6 +25,11 @@
       "relation": "manyToMany",
       "target": "api::offering.offering",
       "inversedBy": "subGroups"
+    },
+    "rankedOfferings": {
+      "type": "component",
+      "component": "offerings.ranked-offerings",
+      "repeatable": true
     }
   }
 }
