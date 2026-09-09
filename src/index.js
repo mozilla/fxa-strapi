@@ -1,5 +1,7 @@
 'use strict';
 
+const crypto = require('crypto');
+
 const { errors } = require('@strapi/utils');
 
 const offeringOrdering = require('./validation/offering-ordering');
@@ -88,10 +90,92 @@ const collectInvalidEntries = (matchers) => {
   return invalid;
 };
 
+// Local POC seed for end-to-end metering testing. The salt never leaves
+// Strapi: we hash a known plaintext with the configured API_TOKEN_SALT at boot
+// and store only the hash, exactly as Strapi's admin api-token service would.
+// The same plaintext is handed to payments-api via STRAPI_CLIENT_CONFIG__API_KEY.
+const METERING_POC_TOKEN = 'metering-poc-local-token';
+const METERING_POC_TOKEN_NAME = 'metering-poc';
+
+const SEED_METERS = [
+  {
+    slug: 'api_calls',
+    unit: 'calls',
+    limit: 1000,
+    window: 'monthly',
+    notificationThresholds: '80,100',
+    webhooks: [],
+  },
+  {
+    slug: 'api_calls_wh',
+    unit: 'calls',
+    limit: 1000,
+    window: 'monthly',
+    notificationThresholds: '80,100',
+    webhooks: [
+      {
+        url: 'https://9099--main--fxa2--julianpoyourow.coder.tartarus.cloud/webhook',
+        signingClientId: 'local-rp',
+      },
+    ],
+  },
+];
+
+async function ensureApiToken(strapi) {
+  const salt = strapi.config.get('admin.apiToken.salt');
+  const accessKey = crypto
+    .createHmac('sha512', salt)
+    .update(METERING_POC_TOKEN)
+    .digest('hex');
+
+  const existing = await strapi.db
+    .query('admin::api-token')
+    .findOne({ where: { name: METERING_POC_TOKEN_NAME } });
+
+  const data = {
+    name: METERING_POC_TOKEN_NAME,
+    description: 'Local POC token for payments-api metering meter lookups',
+    type: 'full-access',
+    accessKey,
+    lifespan: null,
+    expiresAt: null,
+  };
+
+  if (existing) {
+    await strapi.db
+      .query('admin::api-token')
+      .update({ where: { id: existing.id }, data });
+  } else {
+    await strapi.db.query('admin::api-token').create({ data });
+  }
+  strapi.log.info(`[metering-poc] api token "${METERING_POC_TOKEN_NAME}" ready`);
+}
+
+async function ensureSeedMeter(strapi, meter) {
+  const existing = await strapi
+    .documents('api::meter.meter')
+    .findFirst({ filters: { slug: meter.slug } });
+
+  if (existing) {
+    await strapi.documents('api::meter.meter').update({
+      documentId: existing.documentId,
+      data: meter,
+      status: 'published',
+    });
+    strapi.log.info(`[metering-poc] updated published meter "${meter.slug}"`);
+    return;
+  }
+
+  await strapi
+    .documents('api::meter.meter')
+    .create({ data: meter, status: 'published' });
+  strapi.log.info(`[metering-poc] seeded published meter "${meter.slug}"`);
+}
+
 module.exports = {
   register(/*{ strapi }*/) {},
 
-  bootstrap({ strapi }) {
+  async bootstrap({ strapi }) {
     strapi.documents.use(async (context, next) => {
       if (
         context.uid !== ACCESS_UID ||
@@ -117,5 +201,14 @@ module.exports = {
 
     strapi.documents.use(subgroupOrdering(strapi));
     strapi.documents.use(offeringOrdering(strapi));
+
+    try {
+      await ensureApiToken(strapi);
+      for (const meter of SEED_METERS) {
+        await ensureSeedMeter(strapi, meter);
+      }
+    } catch (err) {
+      strapi.log.error(`[metering-poc] bootstrap failed: ${err.message}`);
+    }
   },
 };
