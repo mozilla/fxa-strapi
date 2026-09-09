@@ -25,14 +25,59 @@
       "type": "biginteger",
       "required": true
     },
-    "window": {
+    "windowKind": {
       "type": "enumeration",
       "required": true,
+      "default": "calendar",
+      "enum": [
+        "calendar",
+        "sliding",
+        "session"
+      ]
+    },
+    "windowPeriod": {
+      "type": "enumeration",
       "enum": [
         "daily",
         "weekly",
         "monthly"
-      ]
+      ],
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "windowKind"
+            },
+            "calendar"
+          ]
+        }
+      }
+    },
+    "windowDurationMinutes": {
+      "type": "integer",
+      "min": 1,
+      "conditions": {
+        "visible": {
+          "or": [
+            {
+              "==": [
+                {
+                  "var": "windowKind"
+                },
+                "sliding"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "windowKind"
+                },
+                "session"
+              ]
+            }
+          ]
+        }
+      }
     },
     "notificationThresholds": {
       "type": "text"
