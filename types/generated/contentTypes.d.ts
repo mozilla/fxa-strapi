@@ -1261,8 +1261,19 @@ export interface ApiMeterMeter extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     webhooks: Schema.Attribute.Component<'entitlements.webhooks', true>;
-    window: Schema.Attribute.Enumeration<['daily', 'weekly', 'monthly']> &
-      Schema.Attribute.Required;
+    windowDurationMinutes: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    windowKind: Schema.Attribute.Enumeration<
+      ['calendar', 'sliding', 'session']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'calendar'>;
+    windowPeriod: Schema.Attribute.Enumeration<['daily', 'weekly', 'monthly']>;
   };
 }
 
