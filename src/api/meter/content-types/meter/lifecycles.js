@@ -2,6 +2,8 @@
 
 const { errors } = require('@strapi/utils');
 
+const SLIDING_WINDOW_STEP_MINUTES = 60;
+
 function validateWindow(data) {
   if (data.windowKind === undefined) {
     return;
@@ -14,6 +16,9 @@ function validateWindow(data) {
   }
   if (!data.windowDurationMinutes) {
     throw new errors.ValidationError(`windowDurationMinutes is required for ${data.windowKind} meters`);
+  }
+  if (data.windowKind === 'sliding' && data.windowDurationMinutes % SLIDING_WINDOW_STEP_MINUTES !== 0) {
+    throw new errors.ValidationError(`windowDurationMinutes must be a multiple of ${SLIDING_WINDOW_STEP_MINUTES} for sliding meters`);
   }
 }
 
