@@ -1264,6 +1264,7 @@ export interface ApiMeterMeter extends Struct.CollectionTypeSchema {
     windowDurationMinutes: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
+          max: 129600;
           min: 1;
         },
         number
